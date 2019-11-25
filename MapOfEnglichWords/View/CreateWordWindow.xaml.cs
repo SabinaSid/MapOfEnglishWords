@@ -18,9 +18,9 @@ namespace MapOfEnglichWords.View
     /// <summary>
     /// Логика взаимодействия для CreateWordWindow.xaml
     /// </summary>
-    public partial class CreateWordWindow : Window, IView
+    public partial class WordWindow : Window, IView
     {
-        public CreateWordWindow()
+        public WordWindow()
         {
             InitializeComponent();
         }

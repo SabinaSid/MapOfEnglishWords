@@ -28,7 +28,7 @@ namespace MapOfEnglichWords
             CommandBinding commandBinding = new CommandBinding();
             commandBinding.Command = ApplicationCommands.Open;
             //commandBinding.Executed += CommandBinding_Executed;
-            commandBinding.Executed += (s, e) => new CreateWordWindow().Show();
+            commandBinding.Executed += (s, e) => new WordWindow().Show();
             bOpenCreateWordWindow.CommandBindings.Add(commandBinding);
         }
 
