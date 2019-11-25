@@ -28,7 +28,7 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Button Height="100" Width="100" Grid.Row="2" Command="Open" Background="Coral" x:Name="bOpenCreateWordWindow" ></Button>
+        <Button Height="100" Width="100" Grid.Row="2" Command="Open" Background="Coral" x:Name="bOpenCreateWordWindow" />
 
     </Grid>
 </Window>

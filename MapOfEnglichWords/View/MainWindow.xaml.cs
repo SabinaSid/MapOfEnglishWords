@@ -1,4 +1,5 @@
-﻿using MapOfEnglichWords.View;
+﻿using MapOfEnglichWords.DAL;
+using MapOfEnglichWords.View;
 using MapOfEnglichWords.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -27,15 +28,13 @@ namespace MapOfEnglichWords
             InitializeComponent();
             CommandBinding commandBinding = new CommandBinding();
             commandBinding.Command = ApplicationCommands.Open;
-            //commandBinding.Executed += CommandBinding_Executed;
-            commandBinding.Executed += (s, e) => new WordWindow().Show();
-            bOpenCreateWordWindow.CommandBindings.Add(commandBinding);
-        }
+            commandBinding.Executed += (s, e) => new CreateWordWindow().Show();
+            //commandBinding.Executed += (s, e) => LocalStorage.Instance.Save();
+            //ToDo:Сериализация в месте закрытия вот LocalStorage.Instance.Save();
 
-        //private void CommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
-        //{
-        //    new CreateWordWindow().Show();
-        //}
+            bOpenCreateWordWindow.CommandBindings.Add(commandBinding);
+
+        }
 
         public IViewModel GetViewModel()
         {

@@ -22,5 +22,9 @@ namespace MapOfEnglichWords.Model
             this.Translation = Translation;
             this.Example = Example;
         }
+        public Word()
+        {
+
+        }
     }
 }

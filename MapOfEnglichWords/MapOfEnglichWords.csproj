@@ -69,6 +69,8 @@
     </Compile>
     <Compile Include="DAL\IStorage.cs" />
     <Compile Include="DAL\LocalStorage.cs" />
+    <Compile Include="DAL\Rep\IRepository.cs" />
+    <Compile Include="DAL\Rep\WordsRepository.cs" />
     <Compile Include="DAL\Xml.cs" />
     <Compile Include="Model\Word.cs" />
     <Compile Include="ViewModel\IViewModel.cs" />

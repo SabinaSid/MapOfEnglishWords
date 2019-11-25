@@ -15,7 +15,7 @@ namespace MapOfEnglichWords.DAL
         {
             var stream = new MemoryStream();
             var ser = new XmlSerializer(typeof(T));
-            ser.Serialize(stream, source);
+            ser.Serialize (stream, source);
             stream.Position = 0;
             return XDocument.Load(stream);
         }
