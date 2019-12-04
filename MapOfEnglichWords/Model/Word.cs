@@ -16,11 +16,10 @@ namespace MapOfEnglichWords.Model
 
         public List<Word> Childs { get; set; }
 
-        public Word(string Name, string Translation, string Example)
+        public Word(string Name, string Translation)
         {
             this.Name = Name;
             this.Translation = Translation;
-            this.Example = Example;
         }
         public Word()
         {

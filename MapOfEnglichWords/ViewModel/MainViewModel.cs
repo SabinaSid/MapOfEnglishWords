@@ -1,4 +1,7 @@
-﻿using MapOfEnglichWords.Model;
+﻿using MapOfEnglichWords.DAL;
+using MapOfEnglichWords.DAL.Help;
+using MapOfEnglichWords.DAL.Rep;
+using MapOfEnglichWords.Model;
 using MapOfEnglichWords.View;
 using System;
 using System.Collections.Generic;
@@ -13,15 +16,24 @@ namespace MapOfEnglichWords.ViewModel
 {
     public class MainViewModel : ViewModelBase
     {
-        public MainViewModel(IView view)
+        public MainViewModel(IViewWindow view)
             :base(view)
         {
+            var manager = new UnitOfWork(LocalStorageCode.Instance);
+            Words = manager.Words.Get().ToObservable();
             View.Show();
+            view.Active += () => Words = manager.Words.Get().ToObservable();
         }
-         ObservableCollection<Word> words;
-        public ObservableCollection<Word> Words {
+        ObservableCollection<Word> words;
+        public ObservableCollection<Word> Words
+        {
             get => words;
             set => Set(ref words, value);
         }
+        //List<Word> words;
+        //public List<Word> Words {
+        //    get => words;
+        //    set => Set(ref words, value);
+        //}
     }
 }

@@ -21,20 +21,23 @@ namespace MapOfEnglichWords
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window, IView
+    public partial class MainWindow : Window, IViewWindow
     {
+       
         public MainWindow()
         {
             InitializeComponent();
             CommandBinding commandBinding = new CommandBinding();
             commandBinding.Command = ApplicationCommands.Open;
-            commandBinding.Executed += (s, e) => new CreateWordWindow().Show();
+            commandBinding.Executed += (s, e) => new CreateVM(new CreateWordWindow());
             //commandBinding.Executed += (s, e) => LocalStorage.Instance.Save();
-            //ToDo:Сериализация в месте закрытия вот LocalStorage.Instance.Save();
+            //ToDo:Сериализация в месте закрытия LocalStorage.Instance.Save();
 
             bOpenCreateWordWindow.CommandBindings.Add(commandBinding);
 
         }
+
+        public event Action Active;
 
         public IViewModel GetViewModel()
         {
@@ -44,6 +47,11 @@ namespace MapOfEnglichWords
         public void SetViewModel(IViewModel value)
         {
             DataContext = value;
+        }
+
+        private void Window_Activated(object sender, EventArgs e)
+        {
+            Active?.Invoke();
         }
     }
 }

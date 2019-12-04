@@ -33,7 +33,7 @@ namespace MapOfEnglichWords.DAL
             var path = "ads.xml";
             return Xml.LoadObjectFromFile<List<Word>>(path);
         }
-        public void Save()
+        public void SaveMainWords()
         {
             var x = Xml.Serelialize(Words);
             x.Save("ads.xml");

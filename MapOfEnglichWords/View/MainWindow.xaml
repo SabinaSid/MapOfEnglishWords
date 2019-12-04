@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MapOfEnglichWords"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" Activated="Window_Activated">
     <Grid Background="#999">
         <Grid.RowDefinitions>
             <RowDefinition Height="20"/>
@@ -19,7 +19,8 @@
         </Grid.ColumnDefinitions>-->
 
         <Label Content="Label" HorizontalAlignment="Left" Margin="384,10,0,0" VerticalAlignment="Top" Grid.Row="0"/>
-            <ListView Grid.Row="1"  Margin="10" ItemsSource="{Binding Words}">
+        
+        <ListView Grid.Row="1"  Margin="10"  ItemsSource="{Binding Words}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" >
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Border BorderThickness="0 0 0 1" BorderBrush="Black" Margin="0 5">
@@ -27,6 +28,11 @@
                     </Border>
                 </DataTemplate>
             </ListView.ItemTemplate>
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel  Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
         </ListView>
         <Button Height="100" Width="100" Grid.Row="2" Command="Open" Background="Coral" x:Name="bOpenCreateWordWindow" />
 

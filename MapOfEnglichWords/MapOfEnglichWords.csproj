@@ -67,12 +67,18 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="DAL\Help\StrangeClass.cs" />
     <Compile Include="DAL\IStorage.cs" />
     <Compile Include="DAL\LocalStorage.cs" />
+    <Compile Include="DAL\LocalStorageCode.cs" />
     <Compile Include="DAL\Rep\IRepository.cs" />
+    <Compile Include="DAL\Rep\UnitOfWork.cs" />
     <Compile Include="DAL\Rep\WordsRepository.cs" />
     <Compile Include="DAL\Xml.cs" />
     <Compile Include="Model\Word.cs" />
+    <Compile Include="ViewModel\Command.cs" />
+    <Compile Include="ViewModel\CreateVM.cs" />
+    <Compile Include="ViewModel\EditVM.cs" />
     <Compile Include="ViewModel\IViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
@@ -80,6 +86,7 @@
       <DependentUpon>CreateWordWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\IView.cs" />
+    <Compile Include="View\IViewWindow.cs" />
     <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

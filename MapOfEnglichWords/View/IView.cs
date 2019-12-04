@@ -12,6 +12,7 @@ namespace MapOfEnglichWords.View
         IViewModel GetViewModel();
         void SetViewModel(IViewModel value);
         void Show();
-
+        void Close();
+        
     }
 }

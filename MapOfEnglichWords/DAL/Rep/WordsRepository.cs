@@ -9,16 +9,16 @@ namespace MapOfEnglichWords.DAL.Rep
 {
     public class WordsRepository : IRepository<Word>
     {
-        private LocalStorage localStorage=LocalStorage.Instance;
+        private IStorage context;
         
         public void Add(Word value)
         {
-           
+            context.Words.Add(value);
         }
 
-        public IEnumerable<Word> Get()
+        public List<Word> Get()
         {
-            throw new NotImplementedException();
+            return context.GetMainWords();
         }
 
         public void Remove(Word value)
@@ -28,7 +28,13 @@ namespace MapOfEnglichWords.DAL.Rep
 
         public void Update(Word oldValue, Word newValue)
         {
-            throw new NotImplementedException();
+            oldValue.Name = newValue.Name;
+            oldValue.Translation = newValue.Translation;
+            oldValue.Example = newValue.Example;
+        }
+        public WordsRepository(IStorage db)
+        {
+            context = db;
         }
     }
 }

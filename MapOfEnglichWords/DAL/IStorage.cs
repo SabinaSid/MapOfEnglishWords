@@ -10,5 +10,7 @@ namespace MapOfEnglichWords.DAL
     public interface IStorage
     {
         List<Word> GetMainWords();
+        void SaveMainWords();
+        List<Word> Words { get; set; }
     }
 }

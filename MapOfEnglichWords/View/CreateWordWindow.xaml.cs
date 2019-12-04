@@ -23,7 +23,13 @@ namespace MapOfEnglichWords.View
         public CreateWordWindow()
         {
             InitializeComponent();
+            //CommandBinding commandBinding = new CommandBinding();
+            //commandBinding.Command = ApplicationCommands.New;
+            //commandBinding.Executed += CommandBinding_Executed;
+            //bNewWord.CommandBindings.Add(commandBinding);
         }
+
+       
 
         public IViewModel GetViewModel()
         {

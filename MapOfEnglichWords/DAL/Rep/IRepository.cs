@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace MapOfEnglichWords.DAL.Rep
 {
-    //croot операции
+    //crud операции
     public interface IRepository<T>
     {
         void Add(T value);
         void Remove(T value);
         void Update(T oldValue, T newValue);
-        IEnumerable<T> Get();
+        List<T> Get();
     }
 }
