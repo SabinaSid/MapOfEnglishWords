@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,7 +15,7 @@ namespace MapOfEnglichWords.Model
 
         public string Example { get; set; }
 
-        public List<Word> Childs { get; set; }
+        public ObservableCollection<Word> Childs { get; set; }
 
         public Word(string Name, string Translation)
         {

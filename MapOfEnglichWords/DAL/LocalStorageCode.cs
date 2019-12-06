@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,10 +23,10 @@ namespace MapOfEnglichWords.DAL
             }
 
         }
-        public List<Word> Words { get; set; }
+        public ObservableCollection<Word> Words { get; set; }
         private LocalStorageCode()
         {
-            Words = new List<Word>
+            Words = new ObservableCollection<Word>
             {
                 new Word("Animal","Животное"),
                 new Word("House","Дом"),
@@ -33,7 +34,7 @@ namespace MapOfEnglichWords.DAL
                 new Word("Person","Персона")
             };
         }
-        public List<Word> GetMainWords()
+        public ObservableCollection<Word> GetMainWords()
         {
             return Words;
         }

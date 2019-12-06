@@ -42,7 +42,7 @@ namespace MapOfEnglichWords.ViewModel
             :base(view)
         {
             manager = new  UnitOfWork(LocalStorageCode.Instance);
-            View.Show();
+            View.ShowDialog();
         }
         
     }

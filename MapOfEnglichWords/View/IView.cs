@@ -13,6 +13,7 @@ namespace MapOfEnglichWords.View
         void SetViewModel(IViewModel value);
         void Show();
         void Close();
-        
+        bool? ShowDialog();
+
     }
 }

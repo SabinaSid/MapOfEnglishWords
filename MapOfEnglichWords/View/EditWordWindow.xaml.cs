@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MapOfEnglichWords.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,23 +12,18 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using MapOfEnglichWords.ViewModel;
 
 namespace MapOfEnglichWords.View
 {
     /// <summary>
-    /// Логика взаимодействия для CreateWordWindow.xaml
+    /// Логика взаимодействия для EditWordWindow.xaml
     /// </summary>
-    public partial class CreateWordWindow : Window, IView
+    public partial class EditWordWindow : Window,IView
     {
-        public CreateWordWindow()
+        public EditWordWindow()
         {
             InitializeComponent();
-            
         }
-
-       
-
         public IViewModel GetViewModel()
         {
             return DataContext as IViewModel;

@@ -59,6 +59,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\EditWordWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -85,8 +89,10 @@
     <Compile Include="View\CreateWordWindow.xaml.cs">
       <DependentUpon>CreateWordWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\EditWordWindow.xaml.cs">
+      <DependentUpon>EditWordWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\IView.cs" />
-    <Compile Include="View\IViewWindow.cs" />
     <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

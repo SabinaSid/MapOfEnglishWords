@@ -1,6 +1,7 @@
 ﻿using MapOfEnglichWords.Model;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,8 +10,8 @@ namespace MapOfEnglichWords.DAL
 {
     public interface IStorage
     {
-        List<Word> GetMainWords();
+        ObservableCollection<Word> GetMainWords();
         void SaveMainWords();
-        List<Word> Words { get; set; }
+        ObservableCollection<Word> Words { get; set; }
     }
 }

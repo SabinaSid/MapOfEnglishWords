@@ -1,6 +1,8 @@
-﻿using MapOfEnglichWords.Model;
+﻿using MapOfEnglichWords.DAL.Help;
+using MapOfEnglichWords.Model;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,16 +16,17 @@ namespace MapOfEnglichWords.DAL.Rep
         public void Add(Word value)
         {
             context.Words.Add(value);
+            
         }
 
-        public List<Word> Get()
+        public ObservableCollection<Word> Get()
         {
             return context.GetMainWords();
         }
 
         public void Remove(Word value)
         {
-            throw new NotImplementedException();
+            context.Words.Remove(value);
         }
 
         public void Update(Word oldValue, Word newValue)

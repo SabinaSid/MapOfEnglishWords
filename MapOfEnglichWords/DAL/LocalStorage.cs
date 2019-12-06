@@ -1,6 +1,7 @@
 ﻿using MapOfEnglichWords.Model;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,12 +27,12 @@ namespace MapOfEnglichWords.DAL
             }
             
         }
-        public List<Word> Words { get; set; }
-        public List<Word> GetMainWords()
+        public ObservableCollection<Word> Words { get; set; }
+        public ObservableCollection<Word> GetMainWords()
         {
             //путь к файлу
             var path = "ads.xml";
-            return Xml.LoadObjectFromFile<List<Word>>(path);
+            return Xml.LoadObjectFromFile<ObservableCollection<Word>>(path);
         }
         public void SaveMainWords()
         {

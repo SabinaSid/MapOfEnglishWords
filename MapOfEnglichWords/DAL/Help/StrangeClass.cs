@@ -9,7 +9,7 @@ namespace MapOfEnglichWords.DAL.Help
 {
     public static class StrangeClass
     {
-        static public ObservableCollection<T> ToObservable<T>(this List<T> collection)
+        static public ObservableCollection<T> ToObservable<T>(this IEnumerable<T> collection)
         {
             return new ObservableCollection<T>(collection);
         }

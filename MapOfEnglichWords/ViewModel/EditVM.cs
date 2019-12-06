@@ -23,17 +23,28 @@ namespace MapOfEnglichWords.ViewModel
                 return editWord ??
                     (editWord = new Command(obj =>
                     {
+                        
                         manager.Words.Update(word,newWord);
                         View.Close();
                     }));
             }
         }
+        public Word NewWord
+        {
+            get => newWord;
+            set => Set(ref newWord, value);
+        }
 
-        public EditVM(IView view)
+        public EditVM(IView view, Word word)
             :base(view)
         {
             manager = new UnitOfWork(LocalStorageCode.Instance);
-            View.Show();
+            this.word = word;
+            newWord = new Word();
+            newWord.Name = word.Name;
+            newWord.Translation = word.Translation;
+            newWord.Example = word.Example;
+            View.ShowDialog();
         }
     }
 }

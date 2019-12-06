@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,6 @@ namespace MapOfEnglichWords.DAL.Rep
         void Add(T value);
         void Remove(T value);
         void Update(T oldValue, T newValue);
-        List<T> Get();
+        ObservableCollection<T> Get();
     }
 }
