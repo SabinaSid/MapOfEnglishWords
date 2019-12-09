@@ -49,9 +49,9 @@ namespace MapOfEnglichWords
            
         }
 
-        private void window_Activated(object sender, EventArgs e)
+        private void TextBlock_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
-            
+
         }
     }
 }

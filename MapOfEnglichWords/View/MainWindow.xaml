@@ -4,9 +4,10 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MapOfEnglichWords"
+        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800"
-        Name="window" Activated="window_Activated">
+        Name="window" >
     <Grid Background="#999">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="7*"/>
@@ -29,7 +30,17 @@
             <ListView.ItemTemplate >
                 <DataTemplate>
                     <Border BorderThickness="0 0 0 1" BorderBrush="Black" Margin="0 5" >
-                        <TextBlock Text="{Binding Name}" Height="100" Width="100"/>
+                        <TextBlock Text="{Binding Name}" Height="100" Width="100">
+                              <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="MouseRightButtonDown">
+                                    <i:InvokeCommandAction Command="{Binding DataContext.OpenEditWindow, ElementName=window}"/>
+                                     </i:EventTrigger>
+                                <i:EventTrigger EventName="MouseLeftButtonDown">
+                                    <i:InvokeCommandAction Command="{Binding DataContext.OpenJustWindow, ElementName=window}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                           
+                        </TextBlock>
                         <!--<Button Content="{Binding Name}" Height="100" Width="100" Command="{Binding DataContext.OpenEditWindow, ElementName=window}" />-->
                     </Border>
                 </DataTemplate>
@@ -41,7 +52,14 @@
             </ListBox.ItemsPanel>
         </ListView>
         <Button Height="100" Width="100" Grid.Row="2"  Background="Coral" x:Name="bOpenCreateWordWindo7w" Command="{Binding OpenCreateWordWindow}" Grid.Column="1" Margin="255.5,0,346,0"/>
-
-
+        <Button Content="2x">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="MouseDoubleClick">
+                    <i:InvokeCommandAction 
+                Command="{Binding DoubleCommand}"
+                CommandParameter="{Binding SelectedPhone}" />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </Button>
     </Grid>
 </Window>
