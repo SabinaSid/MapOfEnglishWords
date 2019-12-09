@@ -15,8 +15,15 @@ namespace MapOfEnglichWords.DAL.Rep
         
         public void Add(Word value)
         {
-            context.Words.Add(value);
-            
+            if (value.Parent!=null)
+            {
+                value.Parent.Childs.Add(value);
+            }
+            else
+            {
+                context.Words.Add(value);
+            }
+
         }
 
         public ObservableCollection<Word> Get()
@@ -29,7 +36,7 @@ namespace MapOfEnglichWords.DAL.Rep
             context.Words.Remove(value);
         }
 
-        public void Update(Word oldValue, Word newValue)
+        public void Update(ref Word oldValue, Word newValue)
         {
             oldValue.Name = newValue.Name;
             oldValue.Translation = newValue.Translation;

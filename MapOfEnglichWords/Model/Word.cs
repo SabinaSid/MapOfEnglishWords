@@ -7,15 +7,30 @@ using System.Threading.Tasks;
 
 namespace MapOfEnglichWords.Model
 {
-    public class Word
+    public class Word:BaseModel
     {
-        public string Name { get; set; }
+        private string name;
+        public string Name 
+        {
+            get => name;
+            set => Set(ref name, value);
+        }
+        private string translation;
+        public string Translation
+        {
+            get => translation;
+            set => Set(ref translation, value);
+        }
+        private string example;
+        public string Example
+        {
+            get => example;
+            set => Set(ref example, value);
+        }
 
-        public string Translation { get; set; }
 
-        public string Example { get; set; }
-
-        public ObservableCollection<Word> Childs { get; set; }
+        public ObservableCollection<Word> Childs { get; set; } = new ObservableCollection<Word>();
+        public Word Parent { get; set; }
 
         public Word(string Name, string Translation)
         {
@@ -26,5 +41,23 @@ namespace MapOfEnglichWords.Model
         {
 
         }
+        //public override int GetHashCode()
+        //{
+        //    int ret = 0;
+        //    if (Name !=null)
+        //    {
+        //        ret += Name.GetHashCode();
+        //    }
+        //    if (Translation!=null)
+        //    {
+        //        ret += Translation.GetHashCode();
+        //    }
+        //    if (Example!=null)
+        //    {
+        //        ret += Example.GetHashCode();
+        //    }
+        //    return ret;
+        //}
+
     }
 }

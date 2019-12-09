@@ -10,5 +10,6 @@ namespace MapOfEnglichWords.ViewModel
     public interface IViewModel
     {
         IView View { get; set; }
+
     }
 }

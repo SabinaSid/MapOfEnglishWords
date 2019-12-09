@@ -46,8 +46,12 @@ namespace MapOfEnglichWords
         public void SetViewModel(IViewModel value)
         {
             DataContext = value;
+           
         }
 
-        
+        private void window_Activated(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

@@ -63,6 +63,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\JustWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -79,11 +83,13 @@
     <Compile Include="DAL\Rep\UnitOfWork.cs" />
     <Compile Include="DAL\Rep\WordsRepository.cs" />
     <Compile Include="DAL\Xml.cs" />
+    <Compile Include="Model\BaseModel.cs" />
     <Compile Include="Model\Word.cs" />
     <Compile Include="ViewModel\Command.cs" />
     <Compile Include="ViewModel\CreateVM.cs" />
     <Compile Include="ViewModel\EditVM.cs" />
     <Compile Include="ViewModel\IViewModel.cs" />
+    <Compile Include="ViewModel\JustWindowVM.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
     <Compile Include="View\CreateWordWindow.xaml.cs">
@@ -93,6 +99,9 @@
       <DependentUpon>EditWordWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\IView.cs" />
+    <Compile Include="View\JustWindow.xaml.cs">
+      <DependentUpon>JustWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

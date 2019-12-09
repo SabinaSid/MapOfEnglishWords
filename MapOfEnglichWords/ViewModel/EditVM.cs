@@ -4,6 +4,7 @@ using MapOfEnglichWords.Model;
 using MapOfEnglichWords.View;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,8 +24,7 @@ namespace MapOfEnglichWords.ViewModel
                 return editWord ??
                     (editWord = new Command(obj =>
                     {
-                        
-                        manager.Words.Update(word,newWord);
+                        manager.Words.Update(ref word,newWord);
                         View.Close();
                     }));
             }

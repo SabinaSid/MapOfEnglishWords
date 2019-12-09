@@ -26,19 +26,35 @@ namespace MapOfEnglichWords.ViewModel
             {
                 if (Set(ref selectedWord, value))
                 {
-                    new EditVM(new EditWordWindow(), selectedWord);
+                    new JustWindowVM(new JustWindow(), SelectedWord);
+                    //new EditVM(new EditWordWindow(), SelectedWord);
                 }
             }
 
         }
+        //private event EventHandler active;
+        //public event EventHandler Active
+        //{
+        //    add
+        //    {
+        //        Set(ref active, value);
+        //        active += value;
+        //    }
+        //    remove
+        //    {
+        //        active -= value;
+        //    }
+            
+        //}
         public event MouseButtonEventHandler doubleclick;
         public MainViewModel(IView view)
             :base(view)
         {
             manager = new UnitOfWork(LocalStorageCode.Instance);
             Words = manager.Words.Get();
-            selectedWord = Words[0];
+            //selectedWord = Words[0];
             //doubleclick += MainViewModel_doubleclick;
+            //Active += (s,e) => Words = manager.Words.Get();
             View.Show();
         }
 
@@ -61,7 +77,7 @@ namespace MapOfEnglichWords.ViewModel
                 return openCreateWordWindow ??
                     (openCreateWordWindow = new Command(obj =>
                     {
-                        new CreateVM(new CreateWordWindow());
+                        new CreateVM(new CreateWordWindow(),null);
                     }));
             }
         }
