@@ -33,7 +33,15 @@ namespace MapOfEnglichWords.DAL.Rep
 
         public void Remove(Word value)
         {
-            context.Words.Remove(value);
+            if (value.Parent != null)
+            {
+                value.Parent.Childs.Remove(value);
+            }
+            else
+            {
+                context.Words.Remove(value);
+            }
+            
         }
 
         public void Update(ref Word oldValue, Word newValue)
