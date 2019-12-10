@@ -14,7 +14,12 @@ namespace MapOfEnglichWords.ViewModel
     class JustWindowVM:ViewModelBase
     {
         UnitOfWork manager;
-        public Word ParantWord;
+        private Word parantWord;
+        public Word ParantWord
+        {
+            get => parantWord;
+            set => Set(ref parantWord, value);
+        }
         private Word selectedWord;
         public Word SelectedWord
         {

@@ -35,8 +35,18 @@ namespace MapOfEnglichWords
         //commandBinding.Executed += (s, e) => LocalStorage.Instance.Save();
         //ToDo:Сериализация в месте закрытия LocalStorage.Instance.Save();
         //bOpenCreateWordWindow.CommandBindings.Add(commandBinding);
-        
 
+        private void ButtonOpenMenu_Click(object sender, RoutedEventArgs e)
+        {
+            ButtonCloseMenu.Visibility = Visibility.Visible;
+            ButtonOpenMenu.Visibility = Visibility.Collapsed;
+        }
+
+        private void ButtonCloseMenu_Click(object sender, RoutedEventArgs e)
+        {
+            ButtonCloseMenu.Visibility = Visibility.Collapsed;
+            ButtonOpenMenu.Visibility = Visibility.Visible;
+        }
         public IViewModel GetViewModel()
         {
             return DataContext as IViewModel;
@@ -49,9 +59,9 @@ namespace MapOfEnglichWords
            
         }
 
-        private void TextBlock_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            this.Close();
         }
     }
 }

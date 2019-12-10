@@ -5,31 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MapOfEnglichWords.View"
         mc:Ignorable="d"
-        Title="JustWindow" Height="450" Width="800">
-    <Grid Background="#999">
+        Title="{Binding ParantWord}" Height="450" Width="800">
+    <Grid Background="#FFF">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="7*"/>
             <ColumnDefinition Width="54*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="20"/>
+            <RowDefinition Height="40"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
-        <!--<Grid.ColumnDefinitions>
-            <ColumnDefinition Width="250"/>
-            <ColumnDefinition Width="*" MinWidth="300"/>
-            <ColumnDefinition Width="250"/>
-        </Grid.ColumnDefinitions>-->
+        <Grid Grid.ColumnSpan="2" Background="#badabf"/>
 
-        <Label Content="Label" HorizontalAlignment="Left" Margin="293.5,10,0,0" VerticalAlignment="Top" Grid.Row="0" Grid.Column="1"/>
+        <Label Content="{Binding ParantWord}" HorizontalAlignment="Left" Margin="293.5,10,0,0" VerticalAlignment="Top" Grid.Row="0" Grid.Column="0"/>
 
         <ListView Grid.Row="1"  Margin="10"  ItemsSource="{Binding Words}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectedItem="{Binding SelectedWord}" Grid.ColumnSpan="2" >
             <ListView.ItemTemplate >
                 <DataTemplate>
-                    <Border BorderThickness="0 0 0 1" BorderBrush="Black" Margin="0 5" >
+                    <Border BorderThickness="0 0 0 1" BorderBrush="LightCoral" Margin="0 5" >
                         <TextBlock Text="{Binding Name}" Height="100" Width="100"/>
-                        <!--<Button Content="{Binding Name}" Height="100" Width="100" Command="{Binding DataContext.OpenEditWindow, ElementName=window}" />-->
                     </Border>
                 </DataTemplate>
             </ListView.ItemTemplate>
