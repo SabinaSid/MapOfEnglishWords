@@ -26,10 +26,7 @@ namespace MapOfEnglichWords.ViewModel
             get => selectedWord;
             set
             {
-                if (Set(ref selectedWord, value))
-                {
-                    new EditVM(new EditWordWindow(), selectedWord);
-                }
+                Set(ref selectedWord, value);
             }
 
         }
@@ -38,10 +35,6 @@ namespace MapOfEnglichWords.ViewModel
         {
             manager = new UnitOfWork(LocalStorageCode.Instance);
             ParantWord = selectWord;
-            //if (selectWord.Childs==null)
-            //{
-            //    selectedWord.Childs.Add(new Word { Name = "sss" });
-            //}
             Words = selectWord.Childs;
             View.ShowDialog();
         }
@@ -61,6 +54,30 @@ namespace MapOfEnglichWords.ViewModel
                     (openCreateWordWindow = new Command(obj =>
                     {
                         new CreateVM(new CreateWordWindow(),ParantWord);
+                    }));
+            }
+        }
+        private Command openJustWindow;
+        public Command OpenJustWindow
+        {
+            get
+            {
+                return openJustWindow ??
+                    (openJustWindow = new Command(obj =>
+                    {
+                        new JustWindowVM(new JustWindow(), SelectedWord);
+                    }));
+            }
+        }
+        private Command openEditWindow;
+        public Command OpenEditWindow
+        {
+            get
+            {
+                return openEditWindow ??
+                    (openEditWindow = new Command(obj =>
+                    {
+                        new EditVM(new EditWordWindow(), SelectedWord);
                     }));
             }
         }

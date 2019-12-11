@@ -3,39 +3,112 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
+        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         xmlns:local="clr-namespace:MapOfEnglichWords.View"
         mc:Ignorable="d"
-        Title="{Binding ParantWord}" Height="450" Width="800">
-    <Grid Background="#FFF">
+        Title="{Binding ParantWord.Name}" Height="450" Width="800"
+        Icon="C:\Users\79121\source\repos\MapOfEnglichWords\MapOfEnglichWords/Content/map_512.ico"
+        x:Name="window">
+    <Window.Resources>
+        <Storyboard x:Key="OpenMenu">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
+                <EasingDoubleKeyFrame KeyTime="0" Value="70"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="200"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="CloseMenu">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
+                <EasingDoubleKeyFrame KeyTime="0" Value="200"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="70"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonOpenMenu">
+            <BeginStoryboard Storyboard="{StaticResource OpenMenu}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonCloseMenu">
+            <BeginStoryboard Storyboard="{StaticResource CloseMenu}"/>
+        </EventTrigger>
+    </Window.Triggers>
+    <Grid Background="#e3f1e2">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="7*"/>
-            <ColumnDefinition Width="54*"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
-        <Grid Grid.ColumnSpan="2" Background="#badabf"/>
+        <Grid Grid.ColumnSpan="2" Background="#badabf">
+            <Label Content="{Binding ParantWord.Name}" HorizontalAlignment="Center" FontSize="20"  VerticalAlignment="Top" Foreground="White"/>
+        </Grid>
+        <Grid x:Name="GridMenu" Grid.RowSpan="2" Background="#7bb38d" Width="70" HorizontalAlignment="Left">
+            <Grid.Effect>
+                <DropShadowEffect BlurRadius="2" ShadowDepth="1" Color="#FFAEAEAE"/>
+            </Grid.Effect>
+            <StackPanel>
+                <Grid Height="150" Background="White" RenderTransformOrigin="0.5,0.5">
+                    <Grid.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Grid.RenderTransform>
+                    <Button x:Name="ButtonOpenMenu" Height="60" Width="60" Margin="5" HorizontalAlignment="Right" VerticalAlignment="Top"  Background="White" BorderBrush="White" Foreground="#73816a" Click="ButtonOpenMenu_Click">
+                        <materialDesign:PackIcon Kind="Menu" Width="25" Height="25"/>
+                    </Button>
+                    <Button x:Name="ButtonCloseMenu" Visibility="Collapsed" Height="60" Width="60" Margin="5" HorizontalAlignment="Right" VerticalAlignment="Top"   Background="White" BorderBrush="White" Foreground="#73816a" Click="ButtonCloseMenu_Click">
+                        <materialDesign:PackIcon Kind="ArrowLeft" Width="25" Height="25"/>
+                    </Button>
+                    <Image Height="80" VerticalAlignment="Bottom"/>
+                </Grid>
+                <StackPanel Orientation="Vertical" ScrollViewer.HorizontalScrollBarVisibility="Disabled"  Background="#7bb38d" >
+                    <StackPanel Orientation="Horizontal" Height="60">
+                        <Button Command="{Binding DataContext.OpenCreateWordWindow,ElementName=window}" Foreground="#73816a" Background="White">
+                            <materialDesign:PackIcon Kind="Pencil" Height="25" Width="25" Margin="0" />
+                        </Button>
+                        <TextBlock Text="Создать" VerticalAlignment="Center" Margin="20 0"/>
 
-        <Label Content="{Binding ParantWord}" HorizontalAlignment="Left" Margin="293.5,10,0,0" VerticalAlignment="Top" Grid.Row="0" Grid.Column="0"/>
-
-        <ListView Grid.Row="1"  Margin="10"  ItemsSource="{Binding Words}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectedItem="{Binding SelectedWord}" Grid.ColumnSpan="2" >
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Height="60">
+                        <Button Foreground="#73816a" Background="White">
+                            <materialDesign:PackIcon Kind="Delete" Height="25" Width="25" Margin="0"/>
+                        </Button>
+                        <TextBlock Text="Удалить" VerticalAlignment="Center"  Margin="20 0"/>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+        <ListView  Grid.Row="1" Grid.Column="1" Margin="10"  Grid.ColumnSpan="1"  
+                   ItemsSource="{Binding Words}"
+                  SelectedItem="{Binding SelectedWord}"
+                    ScrollViewer.HorizontalScrollBarVisibility="Disabled">
             <ListView.ItemTemplate >
                 <DataTemplate>
-                    <Border BorderThickness="0 0 0 1" BorderBrush="LightCoral" Margin="0 5" >
-                        <TextBlock Text="{Binding Name}" Height="100" Width="100"/>
+                    <Border BorderThickness="0 0 0 1" BorderBrush="#378752" Margin="0" >
+                        <TextBlock Text="{Binding Name}" Height="100" Width="100" FontSize="30" FontFamily="Pescadero" Foreground="#378752">
+                              <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="MouseRightButtonUp">
+                                    <i:InvokeCommandAction Command="{Binding DataContext.OpenEditWindow, ElementName=window}"/>
+                                     </i:EventTrigger>
+                                <i:EventTrigger EventName="MouseLeftButtonUp">
+                                    <i:InvokeCommandAction Command="{Binding DataContext.OpenJustWindow, ElementName=window}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                        </TextBlock>
                     </Border>
                 </DataTemplate>
             </ListView.ItemTemplate>
+
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel  Orientation="Horizontal"/>
                 </ItemsPanelTemplate>
             </ListBox.ItemsPanel>
         </ListView>
-        <Button Height="100" Width="100" Grid.Row="2"  Background="Coral" x:Name="bOpenCreateWordWindo7w" Command="{Binding OpenCreateWordWindow}" Grid.Column="1" Margin="255.5,0,346,0"/>
-
-
     </Grid>
 </Window>

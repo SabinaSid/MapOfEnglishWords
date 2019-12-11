@@ -70,13 +70,13 @@
                 </Grid>
                 <StackPanel Orientation="Vertical" ScrollViewer.HorizontalScrollBarVisibility="Disabled"  Background="#7bb38d" >
                     <StackPanel Orientation="Horizontal" Height="60">
-                        <Button Foreground="#73816a">
+                        <Button Foreground="#73816a" Background="White">
                             <materialDesign:PackIcon Kind="ViewDashboard" Height="25" Width="25" Margin="0"/>
                         </Button>
                         <TextBlock Text="Home" VerticalAlignment="Center" Margin="20 0"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Height="60">
-                        <Button Command="{Binding DataContext.OpenCreateWordWindow,ElementName=window}" Foreground="#73816a">
+                        <Button Command="{Binding DataContext.OpenCreateWordWindow,ElementName=window}" Foreground="#73816a" Background="White">
                             <materialDesign:PackIcon Kind="Pencil" Height="25" Width="25" Margin="0" />
                         </Button>
                         <TextBlock Text="Создать" VerticalAlignment="Center" Margin="20 0"/>
@@ -84,10 +84,10 @@
 
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Height="60">
-                        <Button Foreground="#73816a">
-                            <materialDesign:PackIcon Kind="Ticket" Height="25" Width="25" Margin="0"/>
+                        <Button Foreground="#73816a" Background="White">
+                            <materialDesign:PackIcon Kind="Delete" Height="25" Width="25" Margin="0"/>
                         </Button>
-                        <TextBlock Text="Tickets" VerticalAlignment="Center"  Margin="20 0"/>
+                        <TextBlock Text="Удалить" VerticalAlignment="Center"  Margin="20 0"/>
                     </StackPanel>
                 </StackPanel>
             </StackPanel>
@@ -95,18 +95,14 @@
 
 
 
-        <ListView Grid.Row="1" Grid.Column="1" Margin="10"  ItemsSource="{Binding Words}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectedItem="{Binding SelectedWord}" Grid.ColumnSpan="1" Background="#e3f1e2" BorderBrush="#e3f1e2">
+        <ListView Grid.Row="1" Grid.Column="1" Margin="10"  Grid.ColumnSpan="1"
+                  ItemsSource="{Binding Words}"  SelectedItem="{Binding SelectedWord}" 
+                  Background="#e3f1e2" BorderBrush="#e3f1e2" ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                  >
             <ListView.ItemTemplate >
                 <DataTemplate>
-                    <Border BorderThickness="0 0 0 1" BorderBrush="#378752" Margin="0 5" >
+                    <Border BorderThickness="0 0 0 1" BorderBrush="#378752" Margin="0" >
                         <TextBlock Text="{Binding Name}" Height="100" Width="100" FontSize="30" FontFamily="Pescadero" Foreground="#378752">
-                            <TextBlock.ContextMenu>
-                                <ContextMenu>
-                                    <MenuItem Header="Показать связанные слова" Command="{Binding DataContext.OpenJustWindow, ElementName=window}" CommandTarget="{Binding ElementName=window}" />
-                                    <MenuItem Header="Редактировать" Command="{Binding DataContext.OpenEditWindow, ElementName=window}"/>
-                                    <MenuItem Header="Удалить" Command="{Binding DataContext.OpenEditWindow, ElementName=window}"/>
-                                </ContextMenu>
-                            </TextBlock.ContextMenu>
                               <i:Interaction.Triggers>
                                 <i:EventTrigger EventName="MouseRightButtonUp">
                                     <i:InvokeCommandAction Command="{Binding DataContext.OpenEditWindow, ElementName=window}"/>
@@ -124,8 +120,6 @@
                     <WrapPanel  Orientation="Horizontal"/>
                 </ItemsPanelTemplate>
             </ListBox.ItemsPanel>
-
         </ListView>
-        <!--<Button Height="100" Width="100" Grid.Row="1" Content="Добавить" Background="#378752" Command="{Binding OpenCreateWordWindow}" Margin="280,176,262,103" Grid.Column="1"/>-->
     </Grid>
 </Window>

@@ -29,13 +29,6 @@ namespace MapOfEnglichWords
             InitializeComponent();
         }
 
-        //CommandBinding commandBinding = new CommandBinding();
-        //commandBinding.Command = ApplicationCommands.Open;
-        //commandBinding.Executed += (s, e) => new CreateVM(new CreateWordWindow());
-        //commandBinding.Executed += (s, e) => LocalStorage.Instance.Save();
-        //ToDo:Сериализация в месте закрытия LocalStorage.Instance.Save();
-        //bOpenCreateWordWindow.CommandBindings.Add(commandBinding);
-
         private void ButtonOpenMenu_Click(object sender, RoutedEventArgs e)
         {
             ButtonCloseMenu.Visibility = Visibility.Visible;

@@ -35,7 +35,7 @@ namespace MapOfEnglichWords.DAL
 
             };
 
-            Words[0].Childs = new ObservableCollection<Word> { new Word("Dog", "Пес") };
+            Words[0].Childs = new ObservableCollection<Word> { new Word("Dog", "Пес"), new Word("Duck", "Утка"), new Word("Cat", "Кошка")  };
         }
 
         public ObservableCollection<Word> GetMainWords()

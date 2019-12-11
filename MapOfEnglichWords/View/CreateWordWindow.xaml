@@ -6,9 +6,9 @@
         xmlns:local="clr-namespace:MapOfEnglichWords.View"
         mc:Ignorable="d"
         Title="Я выучил новое слово" Height="350" Width="400">
-    <Grid >
+    <Grid Background="White">
         <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="40"/>
             <RowDefinition Height="30"/>
             <RowDefinition Height="30"/>
             <RowDefinition Height="30"/>
@@ -16,16 +16,21 @@
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200"/>
-            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
+        <Grid Grid.ColumnSpan="2" Background="#e7f5dc">
+            <Label Content="Я выучил новое слово" HorizontalAlignment="Center" FontSize="20" Foreground="#73816a" VerticalAlignment="Top" />
+        </Grid>
+
+
         <Label Grid.Row="1" Grid.Column="0" >Иностранное слово:</Label>
         <Label Grid.Row="1" Grid.Column="1">Родное слово:</Label>
         <TextBox Grid.Row="2" Grid.Column="0" Text="{Binding Path=Word.Name,Mode=TwoWay}" />
         <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Path=Word.Translation,Mode=TwoWay}"/>
-        <Label Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"> Пример использования:</Label>
+        <Label Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center"> Пример использования:</Label>
         <TextBox Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding Path=Word.Example,Mode=TwoWay}"/>
-        <Button Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Content="Готово" x:Name="bNewWord" Command="{Binding AddNewWord}"/>
+        <Button Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Content="Готово"  Command="{Binding AddNewWord}" Foreground="white" Background="#73816a"/>
     </Grid>
     
 </Window>

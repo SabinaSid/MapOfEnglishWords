@@ -6,9 +6,9 @@
         xmlns:local="clr-namespace:MapOfEnglichWords.View"
         mc:Ignorable="d"
         Title="Карточка слова" Height="350" Width="400">
-    <Grid >
+    <Grid Background="#e7f5dc">
         <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="40"/>
             <RowDefinition Height="30"/>
             <RowDefinition Height="30"/>
             <RowDefinition Height="30"/>
@@ -16,14 +16,19 @@
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200"/>
-            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Label Grid.Row="1" Grid.Column="0" >Иностранное слово:</Label>
+        <Grid Grid.ColumnSpan="2" Background="#378752">
+            <Label Content="Карточка слова" HorizontalAlignment="Center" FontSize="20" Foreground="White" VerticalAlignment="Top" />
+        </Grid>
+
+
+        <Label Grid.Row="1" Grid.Column="0"  >Иностранное слово:</Label>
         <Label Grid.Row="1" Grid.Column="1">Родное слово:</Label>
         <TextBox Grid.Row="2" Grid.Column="0" Text="{Binding Path=NewWord.Name,Mode=TwoWay}" />
         <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Path=NewWord.Translation,Mode=TwoWay}"/>
-        <Label Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2">Пример использования:</Label>
+        <Label Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center">Пример использования:</Label>
         <TextBox Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding Path=NewWord.Example,Mode=TwoWay}"/>
         <Button Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Content="Готово"  Command="{Binding EditWord}"/>
     </Grid>

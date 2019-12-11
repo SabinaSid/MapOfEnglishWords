@@ -25,11 +25,6 @@ namespace MapOfEnglichWords.ViewModel
             set
             {
                 Set(ref selectedWord, value);
-                //if (Set(ref selectedWord, value))
-                //{
-                //    new JustWindowVM(new JustWindow(), SelectedWord);
-                //    new EditVM(new EditWordWindow(), SelectedWord);
-                //}
             }
 
         }
