@@ -4,9 +4,9 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MapOfEnglichWords.Model;
+using MapOfEnglishWords.Model;
 
-namespace MapOfEnglichWords.DAL
+namespace MapOfEnglishWords.DAL
 {
     public class LocalStorageCode : IStorage
     {

@@ -1,11 +1,11 @@
-﻿using MapOfEnglichWords.ViewModel;
+﻿using MapOfEnglishWords.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MapOfEnglichWords.View
+namespace MapOfEnglishWords.View
 {
     public interface IView
     {

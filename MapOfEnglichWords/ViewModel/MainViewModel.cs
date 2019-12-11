@@ -1,8 +1,8 @@
-﻿using MapOfEnglichWords.DAL;
-using MapOfEnglichWords.DAL.Help;
-using MapOfEnglichWords.DAL.Rep;
-using MapOfEnglichWords.Model;
-using MapOfEnglichWords.View;
+﻿using MapOfEnglishWords.DAL;
+using MapOfEnglishWords.DAL.Help;
+using MapOfEnglishWords.DAL.Rep;
+using MapOfEnglishWords.Model;
+using MapOfEnglishWords.View;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -13,7 +13,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace MapOfEnglichWords.ViewModel
+namespace MapOfEnglishWords.ViewModel
 {
     public class MainViewModel : ViewModelBase
     {
@@ -78,6 +78,18 @@ namespace MapOfEnglichWords.ViewModel
                     (openJustWindow = new Command(obj =>
                     {
                         new JustWindowVM(new JustWindow(), SelectedWord);
+                    }));
+            }
+        }
+        private Command openDelQuestion;
+        public Command OpenDelQuestion
+        {
+            get
+            {
+                return openDelQuestion ??
+                    (openDelQuestion = new Command(obj =>
+                    {
+                        new DelVM(new DelQuestion(), SelectedWord);
                     }));
             }
         }

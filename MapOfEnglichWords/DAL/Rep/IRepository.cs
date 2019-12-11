@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MapOfEnglichWords.DAL.Rep
+namespace MapOfEnglishWords.DAL.Rep
 {
     //crud операции
     public interface IRepository<T>

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace MapOfEnglichWords.ViewModel
+namespace MapOfEnglishWords.ViewModel
 {
     public class Command : ICommand
     {

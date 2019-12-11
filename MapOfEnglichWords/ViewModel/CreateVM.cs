@@ -1,7 +1,7 @@
-﻿using MapOfEnglichWords.DAL;
-using MapOfEnglichWords.DAL.Rep;
-using MapOfEnglichWords.Model;
-using MapOfEnglichWords.View;
+﻿using MapOfEnglishWords.DAL;
+using MapOfEnglishWords.DAL.Rep;
+using MapOfEnglishWords.Model;
+using MapOfEnglishWords.View;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
-namespace MapOfEnglichWords.ViewModel
+namespace MapOfEnglishWords.ViewModel
 {
     public class CreateVM : ViewModelBase
     {

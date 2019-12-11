@@ -1,6 +1,6 @@
 ﻿
-using MapOfEnglichWords.View;
-using MapOfEnglichWords.ViewModel;
+using MapOfEnglishWords.View;
+using MapOfEnglishWords.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,7 +9,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MapOfEnglichWords.ViewModel
+namespace MapOfEnglishWords.ViewModel
 {
     public abstract class ViewModelBase : INotifyPropertyChanged, IViewModel
     {

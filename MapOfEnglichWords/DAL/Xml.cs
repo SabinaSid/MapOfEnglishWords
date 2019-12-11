@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Xml.Linq;
 using System.Xml.Serialization;
 
-namespace MapOfEnglichWords.DAL
+namespace MapOfEnglishWords.DAL
 {
     public class Xml
     {

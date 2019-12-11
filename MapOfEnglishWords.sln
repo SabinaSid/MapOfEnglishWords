@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29403.142
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MapOfEnglichWords", "MapOfEnglichWords\MapOfEnglichWords.csproj", "{82D85BA1-FDE4-4D8D-811E-6DB0BEFF87A6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MapOfEnglishWords", "MapOfEnglichWords\MapOfEnglishWords.csproj", "{82D85BA1-FDE4-4D8D-811E-6DB0BEFF87A6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

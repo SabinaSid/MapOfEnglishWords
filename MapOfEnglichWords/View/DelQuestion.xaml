@@ -1,0 +1,27 @@
+﻿<Window x:Class="MapOfEnglishWords.View.DelQuestion"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MapOfEnglishWords.View"
+        mc:Ignorable="d"
+        Title="Предупреждение" Height="135" Width="300"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.ColumnSpan="2" Background="White">
+            <TextBlock Text="{Binding Text}" HorizontalAlignment="Center" FontSize="15" Foreground="Black" VerticalAlignment="Top" TextWrapping="Wrap"/>
+        </Grid>
+        <Button Background="#378752" Grid.Row="1" Content="УДАЛИТЬ" Command="{Binding RemoveWord}"/>
+        <Button Background="#378752" Grid.Row="1" Grid.Column="1" Content="ОТМЕНА" Command="{Binding Cancel}"/>
+        
+    </Grid>
+
+</Window>

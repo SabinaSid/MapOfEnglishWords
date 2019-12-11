@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MapOfEnglichWords.Model
+namespace MapOfEnglishWords.Model
 {
     public class Word:BaseModel
     {

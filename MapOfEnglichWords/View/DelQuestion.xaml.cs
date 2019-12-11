@@ -1,5 +1,4 @@
-﻿using MapOfEnglishWords.ViewModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,39 +11,28 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MapOfEnglishWords.ViewModel;
 
 namespace MapOfEnglishWords.View
 {
     /// <summary>
-    /// Логика взаимодействия для JustWindow.xaml
+    /// Логика взаимодействия для DelQuestion.xaml
     /// </summary>
-    public partial class JustWindow : Window, IView
+    public partial class DelQuestion : Window, IView
     {
-        public JustWindow()
+        public DelQuestion()
         {
             InitializeComponent();
         }
+
         public IViewModel GetViewModel()
         {
             return DataContext as IViewModel;
-
         }
 
         public void SetViewModel(IViewModel value)
         {
             DataContext = value;
-
-        }
-        private void ButtonOpenMenu_Click(object sender, RoutedEventArgs e)
-        {
-            ButtonCloseMenu.Visibility = Visibility.Visible;
-            ButtonOpenMenu.Visibility = Visibility.Collapsed;
-        }
-
-        private void ButtonCloseMenu_Click(object sender, RoutedEventArgs e)
-        {
-            ButtonCloseMenu.Visibility = Visibility.Collapsed;
-            ButtonOpenMenu.Visibility = Visibility.Visible;
         }
     }
 }

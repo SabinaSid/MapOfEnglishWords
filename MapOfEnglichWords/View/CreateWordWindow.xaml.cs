@@ -11,9 +11,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using MapOfEnglichWords.ViewModel;
+using MapOfEnglishWords.ViewModel;
 
-namespace MapOfEnglichWords.View
+namespace MapOfEnglishWords.View
 {
     /// <summary>
     /// Логика взаимодействия для CreateWordWindow.xaml

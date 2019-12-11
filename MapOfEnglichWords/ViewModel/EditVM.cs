@@ -1,7 +1,7 @@
-﻿using MapOfEnglichWords.DAL;
-using MapOfEnglichWords.DAL.Rep;
-using MapOfEnglichWords.Model;
-using MapOfEnglichWords.View;
+﻿using MapOfEnglishWords.DAL;
+using MapOfEnglishWords.DAL.Rep;
+using MapOfEnglishWords.Model;
+using MapOfEnglishWords.View;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MapOfEnglichWords.ViewModel
+namespace MapOfEnglishWords.ViewModel
 {
     public class EditVM:ViewModelBase
     {

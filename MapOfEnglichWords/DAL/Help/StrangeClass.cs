@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MapOfEnglichWords.DAL.Help
+namespace MapOfEnglishWords.DAL.Help
 {
     public static class StrangeClass
     {
