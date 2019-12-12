@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MapOfEnglishWords.Model;
 
-namespace MapOfEnglishWords.DAL
+namespace MapOfEnglichWords.DAL.LocalStorage
 {
     public class LocalStorageCode : IStorage
     {
@@ -35,7 +35,11 @@ namespace MapOfEnglishWords.DAL
 
             };
 
-            Words[0].Childs = new ObservableCollection<Word> { new Word("Dog", "Пес"), new Word("Duck", "Утка"), new Word("Cat", "Кошка")  };
+            Words[0].Childs = new ObservableCollection<Word> { new Word("Dog", "Пес"),new Word("Duck", "Утка"), new Word("Cat", "Кошка") };
+            foreach (var item in Words[0].Childs)
+            {
+                item.Parent = Words[0];
+            }
         }
 
         public ObservableCollection<Word> GetMainWords()
@@ -45,7 +49,7 @@ namespace MapOfEnglishWords.DAL
 
         public void SaveMainWords()
         {
-            
+
         }
 
     }

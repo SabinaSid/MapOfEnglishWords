@@ -1,4 +1,5 @@
-﻿using MapOfEnglishWords.DAL;
+﻿using MapOfEnglichWords.Controllers;
+using MapOfEnglichWords.DAL.LocalStorage;
 using MapOfEnglishWords.DAL.Rep;
 using MapOfEnglishWords.Model;
 using MapOfEnglishWords.View;
@@ -14,8 +15,9 @@ namespace MapOfEnglishWords.ViewModel
     class JustWindowVM:ViewModelBase
     {
         UnitOfWork manager;
+        public string Title { get; set; }
         private Word parantWord;
-        public Word ParantWord
+        public Word ParentWord
         {
             get => parantWord;
             set => Set(ref parantWord, value);
@@ -34,7 +36,8 @@ namespace MapOfEnglishWords.ViewModel
             :base(view)
         {
             manager = new UnitOfWork(LocalStorageCode.Instance);
-            ParantWord = selectWord;
+            ParentWord = selectWord;
+            Title = ParentWord.Name;
             Words = selectWord.Childs;
             View.ShowDialog();
         }
@@ -53,7 +56,7 @@ namespace MapOfEnglishWords.ViewModel
                 return openCreateWordWindow ??
                     (openCreateWordWindow = new Command(obj =>
                     {
-                        new CreateVM(new CreateWordWindow(),ParantWord);
+                        new CreateVM(new CreateWordWindow(),ParentWord);
                     }));
             }
         }
@@ -65,7 +68,7 @@ namespace MapOfEnglishWords.ViewModel
                 return openJustWindow ??
                     (openJustWindow = new Command(obj =>
                     {
-                        new JustWindowVM(new JustWindow(), SelectedWord);
+                        new JustWindowVM(new MainWindow(), SelectedWord);
                     }));
             }
         }
@@ -90,6 +93,21 @@ namespace MapOfEnglishWords.ViewModel
                     (openDelQuestion = new Command(obj =>
                     {
                         new DelVM(new DelQuestion(), SelectedWord);
+                    }));
+            }
+        }
+        private Command printExcel;
+        public Command PrintExcel
+        {
+            get
+            {
+                return printExcel ??
+                    (printExcel = new Command(obj =>
+                    {
+                        if (Words != null)
+                        {
+                            ReportController.ExportToExel(Words);
+                        }
                     }));
             }
         }

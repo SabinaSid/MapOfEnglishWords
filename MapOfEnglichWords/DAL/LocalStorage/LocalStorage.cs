@@ -1,4 +1,5 @@
-﻿using MapOfEnglishWords.Model;
+﻿using MapOfEnglishWords.DAL;
+using MapOfEnglishWords.Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -6,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MapOfEnglishWords.DAL
+namespace MapOfEnglichWords.DAL.LocalStorage
 {
     public class LocalStorage : IStorage
     {
@@ -19,13 +20,13 @@ namespace MapOfEnglishWords.DAL
         {
             get
             {
-                if (instance==null)
+                if (instance == null)
                 {
                     instance = new LocalStorage();
                 }
                 return instance;
             }
-            
+
         }
         public ObservableCollection<Word> Words { get; set; }
         public ObservableCollection<Word> GetMainWords()

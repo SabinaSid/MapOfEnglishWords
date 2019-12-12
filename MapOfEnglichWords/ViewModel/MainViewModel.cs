@@ -1,5 +1,5 @@
-﻿using MapOfEnglishWords.DAL;
-using MapOfEnglishWords.DAL.Help;
+﻿using MapOfEnglichWords.Controllers;
+using MapOfEnglichWords.DAL.LocalStorage;
 using MapOfEnglishWords.DAL.Rep;
 using MapOfEnglishWords.Model;
 using MapOfEnglishWords.View;
@@ -18,6 +18,7 @@ namespace MapOfEnglishWords.ViewModel
     public class MainViewModel : ViewModelBase
     {
         UnitOfWork manager;
+        public string Title { get; set; }
         private Word selectedWord;
         public Word SelectedWord
         {
@@ -34,6 +35,7 @@ namespace MapOfEnglishWords.ViewModel
         {
             manager = new UnitOfWork(LocalStorageCode.Instance);
             Words = manager.Words.Get();
+            Title = "Все категории";
             View.Show();
         }
 
@@ -77,7 +79,7 @@ namespace MapOfEnglishWords.ViewModel
                 return openJustWindow ??
                     (openJustWindow = new Command(obj =>
                     {
-                        new JustWindowVM(new JustWindow(), SelectedWord);
+                        new JustWindowVM(new MainWindow(), SelectedWord);
                     }));
             }
         }
@@ -90,6 +92,21 @@ namespace MapOfEnglishWords.ViewModel
                     (openDelQuestion = new Command(obj =>
                     {
                         new DelVM(new DelQuestion(), SelectedWord);
+                    }));
+            }
+        }
+        private Command printExcel;
+        public Command PrintExcel
+        {
+            get
+            {
+                return printExcel ??
+                    (printExcel = new Command(obj =>
+                    {
+                        if (Words != null)
+                        {
+                            ReportController.ExportToExel(Words);
+                        }
                     }));
             }
         }

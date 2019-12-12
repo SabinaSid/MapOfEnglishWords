@@ -7,7 +7,7 @@
         xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         xmlns:local="clr-namespace:MapOfEnglishWords.View"
         mc:Ignorable="d"
-        Title="{Binding ParantWord.Name}" Height="450" Width="800"
+        Title="{Binding ParentWord.Name}" Height="450" Width="800"
         Icon="C:\Users\79121\source\repos\MapOfEnglichWords\MapOfEnglichWords/Content/map_512.ico"
         x:Name="window">
     <Window.Resources>
@@ -67,6 +67,14 @@
                     <Image Height="80" VerticalAlignment="Bottom"/>
                 </Grid>
                 <StackPanel Orientation="Vertical" ScrollViewer.HorizontalScrollBarVisibility="Disabled"  Background="#7bb38d" >
+                    <StackPanel Orientation="Horizontal" Height="60">
+                        <Button Foreground="#73816a" Background="White" Command="{Binding PrintExcel}">
+                            <materialDesign:PackIcon Kind="FileExcel" Height="25" Width="25" Margin="0"/>
+                            <!--Kind="ViewDashboard"-->
+                        </Button>
+                        <TextBlock Text="Печать словаря" VerticalAlignment="Center" Margin="20 0"/>
+                    </StackPanel>
+
                     <StackPanel Orientation="Horizontal" Height="60">
                         <Button Command="{Binding DataContext.OpenCreateWordWindow,ElementName=window}" Foreground="#73816a" Background="White">
                             <materialDesign:PackIcon Kind="Pencil" Height="25" Width="25" Margin="0" />

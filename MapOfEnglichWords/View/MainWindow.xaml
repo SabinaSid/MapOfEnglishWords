@@ -44,7 +44,7 @@
         </Grid.RowDefinitions>
 
         <Grid Grid.ColumnSpan="2" Background="#378752">
-            <Label Content="Все категории" HorizontalAlignment="Center" FontSize="20" Foreground="White" VerticalAlignment="Top" />
+            <Label Content="{Binding Title}" HorizontalAlignment="Center" FontSize="20" Foreground="White" VerticalAlignment="Top" />
         </Grid>
         <Grid x:Name="GridMenu" Grid.RowSpan="2" Background="#7bb38d" Width="70" HorizontalAlignment="Left">
             <Grid.Effect>
@@ -70,10 +70,10 @@
                 </Grid>
                 <StackPanel Orientation="Vertical" ScrollViewer.HorizontalScrollBarVisibility="Disabled"  Background="#7bb38d" >
                     <StackPanel Orientation="Horizontal" Height="60">
-                        <Button Foreground="#73816a" Background="White">
-                            <materialDesign:PackIcon Kind="ViewDashboard" Height="25" Width="25" Margin="0"/>
+                        <Button Foreground="#73816a" Background="White" Command="{Binding PrintExcel}">
+                            <materialDesign:PackIcon Kind="FileExcel" Height="25" Width="25" Margin="0"/> <!--Kind="ViewDashboard"-->
                         </Button>
-                        <TextBlock Text="Home" VerticalAlignment="Center" Margin="20 0"/>
+                        <TextBlock Text="Печать словаря" VerticalAlignment="Center" Margin="20 0"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Height="60">
                         <Button Command="{Binding DataContext.OpenCreateWordWindow,ElementName=window}" Foreground="#73816a" Background="White">

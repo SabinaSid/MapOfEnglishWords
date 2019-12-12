@@ -1,4 +1,6 @@
-﻿using MapOfEnglishWords.ViewModel;
+﻿using MapOfEnglichWords.DAL;
+using MapOfEnglichWords.DAL.LocalStorage;
+using MapOfEnglishWords.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
