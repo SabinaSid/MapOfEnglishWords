@@ -110,6 +110,21 @@ namespace MapOfEnglishWords.ViewModel
                     }));
             }
         }
+        private Command printWord;
+        public Command PrintWord
+        {
+            get
+            {
+                return printWord ??
+                    (printWord = new Command(obj =>
+                    {
+                        if (Words != null)
+                        {
+                            ReportController.ExportToWord(SelectedWord);
+                        }
+                    }));
+            }
+        }
 
     }
 }

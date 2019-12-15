@@ -1,0 +1,206 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="MapOfEnglishWords.App" Collapsed="true">
+    <Position X="18.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MapOfEnglishWords.MainWindow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="18.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABEAAAAAAAAAAAAAEAAAAAARAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MapOfEnglichWords.Controllers.ReportController" Collapsed="true">
+    <Position X="20.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAEAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\ReportController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MapOfEnglichWords.DAL.LocalStorage.LocalStorage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="22" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAAAAAAAAAAAAAAAAgBAAAAAQAAAAAAgAAA=</HashCode>
+      <FileName>DAL\LocalStorage\LocalStorage.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MapOfEnglichWords.DAL.LocalStorage.LocalStorageCode" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="23.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAAAAAAAAAAAAAAAAgBAAAAAQAAAAAAgAAA=</HashCode>
+      <FileName>DAL\LocalStorage\LocalStorageCode.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MapOfEnglishWords.DAL.Rep.UnitOfWork" Collapsed="true">
+    <Position X="20.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAA=</HashCode>
+      <FileName>DAL\Rep\UnitOfWork.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MapOfEnglishWords.DAL.Rep.WordsRepository" BaseTypeListCollapsed="true">
+    <Position X="16.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYCAAAAAAAAAABAAAAABAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DAL\Rep\WordsRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.226" />
+  </Class>
+  <Class Name="MapOfEnglishWords.DAL.Xml" Collapsed="true">
+    <Position X="22" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQIAAAgAAAAAAAAAEAAAAAA=</HashCode>
+      <FileName>DAL\Xml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MapOfEnglishWords.Model.BaseModel" Collapsed="true">
+    <Position X="19.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABIAAAAAAAAAAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\BaseModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MapOfEnglishWords.Model.Word" Collapsed="true">
+    <Position X="19.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAAoACAAIAQAQAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Word.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MapOfEnglishWords.Properties.Resources" Collapsed="true">
+    <Position X="22" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MapOfEnglishWords.Properties.Settings">
+    <Position X="23.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MapOfEnglishWords.View.CreateWordWindow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="22" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\CreateWordWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MapOfEnglishWords.View.DelQuestion" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="23.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\DelQuestion.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MapOfEnglishWords.View.EditWordWindow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="18.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\EditWordWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MapOfEnglishWords.View.JustWindow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="20.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABEAAAAAAAAAAAAAAAAAAAARAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\JustWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MapOfEnglishWords.ViewModel.Command" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="20.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAQAAEAEAABAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\Command.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MapOfEnglishWords.ViewModel.CreateVM" Collapsed="true">
+    <Position X="10" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEBAAEBAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>ViewModel\CreateVM.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MapOfEnglishWords.ViewModel.DelVM" Collapsed="true">
+    <Position X="12.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAQABQAAAAAAAAAAAAQAEAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>ViewModel\DelVM.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MapOfEnglishWords.ViewModel.EditVM" Collapsed="true">
+    <Position X="14.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAABAAAAAAAAAAAAAAEEAAAJAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\EditVM.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MapOfEnglishWords.ViewModel.JustWindowVM">
+    <Position X="5.5" Y="4.25" Width="2.25" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAABKAAAAQgEAAFAgAAAQMAAAAAAAAASCBAAAggYA=</HashCode>
+      <FileName>ViewModel\JustWindowVM.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MapOfEnglishWords.ViewModel.MainViewModel" Collapsed="true">
+    <Position X="7.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAKAAAAQgEAAFAgAAAQMAAAAAAAAACCBAAAggYA=</HashCode>
+      <FileName>ViewModel\MainViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MapOfEnglishWords.ViewModel.ViewModelBase" Collapsed="true">
+    <Position X="10" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABIAAAAAAAAAAgAABAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\ViewModelBase.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="MapOfEnglichWords.DAL.LocalStorage.IStorage" Collapsed="true">
+    <Position X="20.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAgAAA=</HashCode>
+      <FileName>DAL\LocalStorage\IStorage.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="MapOfEnglishWords.DAL.Rep.IRepository&lt;T&gt;">
+    <Position X="16.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAAAAABAAAAABAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DAL\Rep\IRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="MapOfEnglishWords.View.IView" Collapsed="true">
+    <Position X="22" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAAAAAAAAAAAEAAAAEAQAAAAAAAACAAAA=</HashCode>
+      <FileName>View\IView.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="MapOfEnglishWords.ViewModel.IViewModel" Collapsed="true">
+    <Position X="10" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\IViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

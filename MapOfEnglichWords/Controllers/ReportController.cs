@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using Excel = Microsoft.Office.Interop.Excel;
-using Word1 = Microsoft.Office.Interop.Word;
+using WordM = Microsoft.Office.Interop.Word;
 
 namespace MapOfEnglichWords.Controllers
 {
@@ -48,8 +48,9 @@ namespace MapOfEnglichWords.Controllers
         }
         public static void ExportToWord(Word word)
         {
-            Word1.Application app = new Word1.Application();
-            Word1.Document doc = app.Documents.Add();
+            WordM.Application app = new WordM.Application();
+            WordM.Document doc = app.Documents.Add();
+
             doc.Paragraphs[1].Range.Text = "Я отчет";
             app.Visible = true;
         }
