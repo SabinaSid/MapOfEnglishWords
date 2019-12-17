@@ -1,4 +1,6 @@
 ﻿
+using MapOfEnglichWords.DAL.LocalStorage;
+using MapOfEnglishWords.DAL.Rep;
 using MapOfEnglishWords.View;
 using MapOfEnglishWords.ViewModel;
 using System;
@@ -14,7 +16,8 @@ namespace MapOfEnglishWords.ViewModel
     public abstract class ViewModelBase : INotifyPropertyChanged, IViewModel
     {
         public IView View { get; set; }
-        
+        protected UnitOfWork manager;
+
         public event PropertyChangedEventHandler PropertyChanged;
         
         protected virtual void NotifyPropertyChanged([CallerMemberName]string propertyName = "")
@@ -33,14 +36,10 @@ namespace MapOfEnglishWords.ViewModel
         
         public ViewModelBase(IView view)
         {
-            PrepareViewModel();
             View = view;
             View.SetViewModel(this);
+            manager = new UnitOfWork(LocalStorageCode.Instance);
         }
         
-        protected virtual void PrepareViewModel()
-        {
-        }
-
     }
 }

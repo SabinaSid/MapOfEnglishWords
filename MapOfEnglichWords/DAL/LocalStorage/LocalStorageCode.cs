@@ -36,6 +36,10 @@ namespace MapOfEnglichWords.DAL.LocalStorage
             };
 
             Words[0].Childs = new ObservableCollection<Word> { new Word("Dog", "Пес"),new Word("Duck", "Утка"), new Word("Cat", "Кошка") };
+            Words[0].Childs[0].Childs.Add(new Word("small", "маденькая"));
+            Words[0].Childs[0].Childs.Add(new Word("big", "большая"));
+            Words[0].Childs[1].Childs.Add(new Word("Fly", "летать"));
+            Words[0].Childs[1].Childs[0].Childs.Add(new Word("West", "Запад"));
             foreach (var item in Words[0].Childs)
             {
                 item.Parent = Words[0];

@@ -17,7 +17,6 @@ namespace MapOfEnglishWords.ViewModel
 {
     public class MainViewModel : ViewModelBase
     {
-        UnitOfWork manager;
         public string Title { get; set; }
         private Word selectedWord;
         public Word SelectedWord
@@ -33,7 +32,6 @@ namespace MapOfEnglishWords.ViewModel
         public MainViewModel(IView view)
             :base(view)
         {
-            manager = new UnitOfWork(LocalStorageCode.Instance);
             Words = manager.Words.Get();
             Title = "Все категории";
             View.Show();
@@ -120,7 +118,7 @@ namespace MapOfEnglishWords.ViewModel
                     {
                         if (Words != null)
                         {
-                            ReportController.ExportToWord(SelectedWord);
+                            ReportController.ExportToWord(Words);
                         }
                     }));
             }

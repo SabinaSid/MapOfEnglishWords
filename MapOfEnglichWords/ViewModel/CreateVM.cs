@@ -16,8 +16,7 @@ namespace MapOfEnglishWords.ViewModel
     public class CreateVM : ViewModelBase
     {
         Word ParantWord;
-        Word word=new Word();
-        UnitOfWork manager;        
+        Word word=new Word();        
         private Command addNewWord;
         public Command AddNewWord
         {
@@ -43,7 +42,6 @@ namespace MapOfEnglishWords.ViewModel
             :base(view)
         {
             ParantWord = selectWord;
-            manager = new  UnitOfWork(LocalStorageCode.Instance);
             View.ShowDialog();
         }
         

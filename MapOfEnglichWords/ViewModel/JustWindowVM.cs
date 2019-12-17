@@ -14,7 +14,6 @@ namespace MapOfEnglishWords.ViewModel
 {
     class JustWindowVM:ViewModelBase
     {
-        UnitOfWork manager;
         public string Title { get; set; }
         private Word parantWord;
         public Word ParentWord
@@ -35,7 +34,6 @@ namespace MapOfEnglishWords.ViewModel
         public JustWindowVM(IView view,Word selectWord)
             :base(view)
         {
-            manager = new UnitOfWork(LocalStorageCode.Instance);
             ParentWord = selectWord;
             Title = ParentWord.Name;
             Words = selectWord.Childs;
@@ -121,7 +119,7 @@ namespace MapOfEnglishWords.ViewModel
                     {
                         if (Words != null)
                         {
-                            ReportController.ExportToWord(SelectedWord);
+                            ReportController.ExportToWord(Words);
                         }
                     }));
             }

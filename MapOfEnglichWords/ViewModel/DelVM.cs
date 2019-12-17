@@ -13,7 +13,6 @@ namespace MapOfEnglishWords.ViewModel
     public class DelVM: ViewModelBase
     {
         Word word;
-        UnitOfWork manager;
         private Command removeWord;
         public Command RemoveWord
         {
@@ -50,7 +49,6 @@ namespace MapOfEnglishWords.ViewModel
                 Text = $"Вы действительно хотите удалить слово {word.Name}? Оно имеет связи";
             }
             else Text = $"Вы действительно хотите удалить слово {word.Name}?";
-            manager = new UnitOfWork(LocalStorageCode.Instance);
             View.ShowDialog();
         }
     }

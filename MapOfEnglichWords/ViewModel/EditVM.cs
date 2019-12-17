@@ -14,7 +14,6 @@ namespace MapOfEnglishWords.ViewModel
     public class EditVM:ViewModelBase
     {
         Word word;
-        UnitOfWork manager;
         Word newWord;
         private Command editWord;
         public Command EditWord
@@ -38,7 +37,6 @@ namespace MapOfEnglishWords.ViewModel
         public EditVM(IView view, Word word)
             :base(view)
         {
-            manager = new UnitOfWork(LocalStorageCode.Instance);
             this.word = word;
             newWord = new Word();
             newWord.Name = word.Name;
