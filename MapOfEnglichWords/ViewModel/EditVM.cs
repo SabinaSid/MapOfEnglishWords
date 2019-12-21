@@ -8,6 +8,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace MapOfEnglishWords.ViewModel
 {
@@ -15,15 +16,15 @@ namespace MapOfEnglishWords.ViewModel
     {
         Word word;
         Word newWord;
-        private Command editWord;
-        public Command EditWord
+        private ICommand editWord;
+        public ICommand EditWord
         {
             get
             {
                 return editWord ??
                     (editWord = new Command(obj =>
                     {
-                        manager.Words.Update(ref word,newWord);
+                        manager.Words.Update(word,newWord);
                         View.Close();
                     }));
             }

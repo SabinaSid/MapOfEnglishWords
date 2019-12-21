@@ -7,14 +7,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace MapOfEnglishWords.ViewModel
 {
     public class DelVM: ViewModelBase
     {
         Word word;
-        private Command removeWord;
-        public Command RemoveWord
+        private ICommand removeWord;
+        public ICommand RemoveWord
         {
             get
             {
@@ -26,8 +27,8 @@ namespace MapOfEnglishWords.ViewModel
                     }));
             }
         }
-        private Command cancel;
-        public Command Cancel
+        private ICommand cancel;
+        public ICommand Cancel
         {
             get
             {

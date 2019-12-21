@@ -13,7 +13,7 @@
       <HashCode>AAAAAAABEAAAAAAAAAAAAAEAAAAAARAAAAAAAAAAAAA=</HashCode>
       <FileName>View\MainWindow.xaml.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
+    <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="MapOfEnglichWords.Controllers.ReportController" Collapsed="true">
     <Position X="13.75" Y="3.25" Width="1.5" />
@@ -28,7 +28,7 @@
       <HashCode>AAAIAAAAAAAAAAAAAAAAAAAAAgBAAAAAQAAAAAAgAAA=</HashCode>
       <FileName>DAL\LocalStorage\LocalStorage.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="MapOfEnglichWords.DAL.LocalStorage.LocalStorageCode" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="20.5" Y="5.5" Width="1.5" />
@@ -36,7 +36,7 @@
       <HashCode>AAAIAAAAAAAAAAAAAAAAAAAAAgBAAAAAQAAAAAAgAAA=</HashCode>
       <FileName>DAL\LocalStorage\LocalStorageCode.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="MapOfEnglishWords.DAL.Rep.UnitOfWork" Collapsed="true">
     <Position X="14.25" Y="5.5" Width="1.5" />
@@ -51,7 +51,7 @@
       <HashCode>AAYCAAAAAAAAAABAAAAABAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>DAL\Rep\WordsRepository.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.226" />
+    <Lollipop Position="0.226" Collapsed="true" />
   </Class>
   <Class Name="MapOfEnglishWords.DAL.Xml" Collapsed="true">
     <Position X="18" Y="2.5" Width="1.5" />
@@ -87,7 +87,7 @@
       <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
     </TypeIdentifier>
   </Class>
-  <Class Name="MapOfEnglishWords.View.CreateWordWindow" BaseTypeListCollapsed="true">
+  <Class Name="MapOfEnglishWords.View.CreateWordWindow" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="1.5" Y="6.5" Width="1.5" />
     <Compartments>
       <Compartment Name="Methods" Collapsed="true" />
@@ -96,7 +96,7 @@
       <HashCode>AAAAAAAAEAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAA=</HashCode>
       <FileName>View\CreateWordWindow.xaml.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
+    <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="MapOfEnglishWords.View.DelQuestion" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="7.25" Y="6.5" Width="1.5" />
@@ -106,7 +106,7 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="MapOfEnglishWords.View.EditWordWindow" BaseTypeListCollapsed="true">
+  <Class Name="MapOfEnglishWords.View.EditWordWindow" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="3.25" Y="6.5" Width="1.5" />
     <Compartments>
       <Compartment Name="Methods" Collapsed="true" />
@@ -115,7 +115,7 @@
       <HashCode>AAAAAAAAEAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAA=</HashCode>
       <FileName>View\EditWordWindow.xaml.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
+    <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="MapOfEnglishWords.View.JustWindow" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="5.25" Y="7.5" Width="1.5" />
@@ -131,10 +131,10 @@
       <HashCode>AAAAAAAAAAACAAQAAEAEAABAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ViewModel\Command.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="MapOfEnglishWords.ViewModel.CreateVM" Collapsed="true">
-    <Position X="5.75" Y="2.75" Width="1.5" />
+    <Position X="5.25" Y="3.25" Width="1.5" />
     <Compartments>
       <Compartment Name="Methods" Collapsed="true" />
     </Compartments>
@@ -150,7 +150,7 @@
       <FileName>ViewModel\DelVM.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="MapOfEnglishWords.ViewModel.EditVM">
+  <Class Name="MapOfEnglishWords.ViewModel.EditVM" Collapsed="true">
     <Position X="9.75" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>CAAAAAABAAAAAAAAAAAAAAEAAAAJAAAAAAAAAAAAAAA=</HashCode>
@@ -169,8 +169,8 @@
       <FileName>ViewModel\JustWindowVM.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="MapOfEnglishWords.ViewModel.MainViewModel" Collapsed="true">
-    <Position X="3" Y="3.25" Width="1.5" />
+  <Class Name="MapOfEnglishWords.ViewModel.MainViewModel">
+    <Position X="3.25" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAKAAAAQgEAAFAgAAAQIAAAAAAAAACCBAAAggYA=</HashCode>
       <FileName>ViewModel\MainViewModel.cs</FileName>
@@ -199,7 +199,7 @@
     </TypeIdentifier>
   </Interface>
   <Interface Name="MapOfEnglishWords.View.IView" Collapsed="true">
-    <Position X="3.5" Y="4.75" Width="1.5" />
+    <Position X="5" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAEAAAAAAAAAAAAAEAAAAEAQAAAAAAAACAAAA=</HashCode>
       <FileName>View\IView.cs</FileName>
@@ -211,6 +211,10 @@
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ViewModel\IViewModel.cs</FileName>
     </TypeIdentifier>
+  </Interface>
+  <Interface Name="System.Windows.Input.ICommand" Collapsed="true">
+    <Position X="11.5" Y="2" Width="1.5" />
+    <TypeIdentifier />
   </Interface>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

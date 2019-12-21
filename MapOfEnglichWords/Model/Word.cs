@@ -41,6 +41,12 @@ namespace MapOfEnglishWords.Model
         {
 
         }
+        public Word(string Name, string Translation, string Example)
+        {
+            this.Name = Name;
+            this.Translation = Translation;
+            this.Example = Example;
+        }
         //public override int GetHashCode()
         //{
         //    int ret = 0;

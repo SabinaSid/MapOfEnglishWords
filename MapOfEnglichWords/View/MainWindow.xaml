@@ -73,14 +73,14 @@
                         <Button Foreground="#73816a" Background="White" Command="{Binding PrintExcel}">
                             <materialDesign:PackIcon Kind="FileExcel" Height="25" Width="25" Margin="0"/> <!--Kind="ViewDashboard"-->
                         </Button>
-                        <TextBlock Text="Печать словаря" VerticalAlignment="Center" Margin="20 0"/>
+                        <TextBlock Text="Словарь" VerticalAlignment="Center" Margin="20 0"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Height="60">
                         <Button Foreground="#73816a" Background="White" Command="{Binding PrintWord}">
                             <materialDesign:PackIcon Kind="FileWord" Height="25" Width="25" Margin="0"/>
                             <!--Kind="ViewDashboard"-->
                         </Button>
-                        <TextBlock Text="Печать отношений" VerticalAlignment="Center" Margin="20 0"/>
+                        <TextBlock Text="Иерархия" VerticalAlignment="Center" Margin="20 0"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Height="60">
                         <Button Command="{Binding DataContext.OpenCreateWordWindow,ElementName=window}" Foreground="#73816a" Background="White">

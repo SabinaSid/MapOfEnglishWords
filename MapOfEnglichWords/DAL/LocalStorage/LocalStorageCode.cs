@@ -28,18 +28,21 @@ namespace MapOfEnglichWords.DAL.LocalStorage
         {
             Words = new ObservableCollection<Word>
             {
-                new Word("Animal","Животное"),
-                new Word("House","Дом"),
+                new Word("Animal","Животное","This looks like a plant, but it's actually an animal."),
+                new Word("House","Дом","And we walked into a house with a very special home video recording system."),
                 new Word("Family","Семья"),
                 new Word("Person","Персона")
 
             };
 
-            Words[0].Childs = new ObservableCollection<Word> { new Word("Dog", "Пес"),new Word("Duck", "Утка"), new Word("Cat", "Кошка") };
-            Words[0].Childs[0].Childs.Add(new Word("small", "маденькая"));
-            Words[0].Childs[0].Childs.Add(new Word("big", "большая"));
-            Words[0].Childs[1].Childs.Add(new Word("Fly", "летать"));
-            Words[0].Childs[1].Childs[0].Childs.Add(new Word("West", "Запад"));
+            Words[0].Childs = new ObservableCollection<Word> { 
+                new Word("Dog", "Пес","On the Internet nobody knows you're a dog, right?"),
+                new Word("Duck", "Утка", "And chickens and ducks and geese and turkeys are basically as dumb as dumps."),
+                new Word("Cat", "Кошка","When the cat's away, the mice will play.") };
+            Words[0].Childs[0].Childs.Add(new Word("Breed", "Порода"));
+            Words[0].Childs[0].Childs.Add(new Word("Bark", "Лай"));
+            Words[0].Childs[1].Childs.Add(new Word("Lake", "Озеро", "This has a diamond-bottomed lake."));
+            Words[0].Childs[1].Childs[0].Childs.Add(new Word("Sedge", "Камыш", "The sedge has wither'd from the lake And no birds sing."));
             foreach (var item in Words[0].Childs)
             {
                 item.Parent = Words[0];

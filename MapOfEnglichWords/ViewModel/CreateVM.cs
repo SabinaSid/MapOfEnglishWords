@@ -17,8 +17,8 @@ namespace MapOfEnglishWords.ViewModel
     {
         Word ParantWord;
         Word word=new Word();        
-        private Command addNewWord;
-        public Command AddNewWord
+        private ICommand addNewWord;
+        public ICommand AddNewWord
         {
             get
             {

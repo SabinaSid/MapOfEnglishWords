@@ -9,6 +9,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace MapOfEnglishWords.ViewModel
 {
@@ -46,8 +47,8 @@ namespace MapOfEnglishWords.ViewModel
             get => words;
             set => Set(ref words, value);
         }
-        private Command openCreateWordWindow;
-        public Command OpenCreateWordWindow
+        private ICommand openCreateWordWindow;
+        public ICommand OpenCreateWordWindow
         {
             get
             {
@@ -58,8 +59,8 @@ namespace MapOfEnglishWords.ViewModel
                     }));
             }
         }
-        private Command openJustWindow;
-        public Command OpenJustWindow
+        private ICommand openJustWindow;
+        public ICommand OpenJustWindow
         {
             get
             {
@@ -70,8 +71,8 @@ namespace MapOfEnglishWords.ViewModel
                     }));
             }
         }
-        private Command openEditWindow;
-        public Command OpenEditWindow
+        private ICommand openEditWindow;
+        public ICommand OpenEditWindow
         {
             get
             {
@@ -82,8 +83,8 @@ namespace MapOfEnglishWords.ViewModel
                     }));
             }
         }
-        private Command openDelQuestion;
-        public Command OpenDelQuestion
+        private ICommand openDelQuestion;
+        public ICommand OpenDelQuestion
         {
             get
             {
@@ -94,8 +95,8 @@ namespace MapOfEnglishWords.ViewModel
                     }));
             }
         }
-        private Command printExcel;
-        public Command PrintExcel
+        private ICommand printExcel;
+        public ICommand PrintExcel
         {
             get
             {
@@ -109,8 +110,8 @@ namespace MapOfEnglishWords.ViewModel
                     }));
             }
         }
-        private Command printWord;
-        public Command PrintWord
+        private ICommand printWord;
+        public ICommand PrintWord
         {
             get
             {

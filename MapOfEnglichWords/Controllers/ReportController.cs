@@ -46,19 +46,23 @@ namespace MapOfEnglichWords.Controllers
                 sheet.Cells[row, 3] = item.Example;
                 row++;
             }
+           
         }
         public static void ExportToWord(ObservableCollection<Word> words)
         {
-            //var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "DicWord.docx");
-            //if (!File.Exists(path))
-            //{
-            //    MessageBox.Show("sss");
-            //    //Require(false, "Шаблон отчета отсутсвует");
-            //    return;
-            //}
-            //WordM.Application app = new WordM.Application();
-            //WordM.Document doc = app.Documents.Open(path);
-            //doc.
+            var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "DicWord.docx");
+            if (!File.Exists(path))
+            {
+                MessageBox.Show("sss");
+                //Require(false, "Шаблон отчета отсутсвует");
+                return;
+            }
+            WordM.Application app = new WordM.Application();
+            WordM.Document doc = app.Documents.Open(path);
+            string rez= "\t\t\t\t\t" + words[0].Name + "  (" + words[0].Translation + ")" + "\n";
+            Rec(words[0], ref rez, 0);
+            doc.Paragraphs[1].Range.Text = rez;
+            app.Visible = true;
 
             //doc.Paragraphs[1].Range.Text = "Я отчет";
             //app.Visible = true;
@@ -110,16 +114,21 @@ namespace MapOfEnglichWords.Controllers
             //    document.InsertParagraph("Словарь для категории: все категории");
             //}
             //document.Save();
-            string rez = "\t\t\t\t\t\t"+words[0].Name+ " - "+ words[0].Translation + "\n";
 
-            Rec(words[0], ref rez, 0);
-            string pathDocument = @"..\example.docx";
 
-            // создаём документ
-            DocX document = DocX.Create(pathDocument);
-            document.InsertParagraph(rez).FontSize(16);
-            document.Save();
 
+
+
+            //string rez = "\t\t\t\t\t\t"+words[0].Name+ " - "+ words[0].Translation + "\n";
+
+            //Rec(words[0], ref rez, 0);
+            //string pathDocument = @"..\example.docx";
+
+            //// создаём документ
+            //DocX document = DocX.Create(pathDocument);
+            //document.InsertParagraph(rez).FontSize(16);
+           
+            //document.Save();
         }
 
         static private void Rec(Word word, ref string result, int otstup)
@@ -132,18 +141,17 @@ namespace MapOfEnglichWords.Controllers
             bool q = false;
             while (word.Childs.Any() && q == false)
             {
-               // result += $"{otstupStr}{word.Name} - {word.Translation} \n{word.Example} содержит: \n";
-
                 foreach (var item in word.Childs)
                 {
-                    if (item == word.Childs.Last())
-                    {
-                        result += $"{otstupStr}{item.Name} - {item.Translation} \n{word.Example}\n";
-                    }
-                    else
-                    {
-                        result += $"{otstupStr}{item.Name} - {item.Translation}\n{word.Example}\n";
-                    }
+                    result += $"{otstupStr}{item.Name} ({item.Translation}) - {item.Example}\n";
+                    //if (item == word.Childs.Last())
+                    //{
+                    //    result += $"{otstupStr}{item.Name} ({item.Translation}) - {word.Example}\n";
+                    //}
+                    //else
+                    //{
+                    //    result += $"{otstupStr}{item.Name} ({item.Translation}) - {word.Example}\n";
+                    //}
                     Rec(item, ref result, otstup + 1);
                 }
                 q = true;

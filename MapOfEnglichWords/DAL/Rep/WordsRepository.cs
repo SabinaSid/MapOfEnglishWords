@@ -44,7 +44,7 @@ namespace MapOfEnglishWords.DAL.Rep
             
         }
 
-        public void Update(ref Word oldValue, Word newValue)
+        public void Update(Word oldValue, Word newValue)
         {
             oldValue.Name = newValue.Name;
             oldValue.Translation = newValue.Translation;
