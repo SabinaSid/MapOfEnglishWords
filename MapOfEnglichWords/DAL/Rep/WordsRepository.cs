@@ -43,26 +43,8 @@ namespace MapOfEnglishWords.DAL.Rep
             }
             
         }
-        public void RemoveWithSave(Word value)
-        {
-            if (value.Parent != null)
-            {
-                foreach (var item in value.Childs)
-                {
-                    value.Parent.Childs.Add(item);
-                }
-                value.Parent.Childs.Remove(value);
-            }
-            else
-            {
-                foreach (var item in value.Childs)
-                {
-                    context.Words.Add(item);
-                }
-                context.Words.Remove(value);
-            }
-
-        }
+   
+        
 
         public void Update(Word oldValue, Word newValue)
         {

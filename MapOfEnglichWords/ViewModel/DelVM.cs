@@ -37,7 +37,27 @@ namespace MapOfEnglishWords.ViewModel
                 return removeWordWithSave ??
                     (removeWordWithSave = new Command(obj =>
                     {
-                        manager.Words.RemoveWithSave(word);
+                        if (word.Parent != null)
+                        {
+                            foreach (var item in word.Childs)
+                            {
+                                item.Parent = word.Parent;
+                                manager.Words.Add(item);
+                            }
+                            
+                        }
+                        else
+                        {
+                            foreach (var item in word.Childs)
+                            {
+                                item.Parent = null;
+                                manager.Words.Add(item);
+
+                            }
+                           
+                        }
+
+                        manager.Words.Remove(word);
                         View.Close();
                     }));
             }
