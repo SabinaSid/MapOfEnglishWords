@@ -13,7 +13,7 @@ namespace MapOfEnglichWords.DAL.LocalStorage
     {
         private LocalStorage()
         {
-            Words = GetMainWords();
+            Words = GetMainWordsPrev();
         }
         static LocalStorage instance;
         public static LocalStorage Instance
@@ -30,6 +30,10 @@ namespace MapOfEnglichWords.DAL.LocalStorage
         }
         public ObservableCollection<Word> Words { get; set; }
         public ObservableCollection<Word> GetMainWords()
+        {
+            return Words;
+        }
+        public ObservableCollection<Word> GetMainWordsPrev()
         {
             //путь к файлу
             var path = "ads.xml";

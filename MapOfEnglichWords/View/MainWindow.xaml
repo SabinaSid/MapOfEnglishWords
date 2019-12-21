@@ -10,7 +10,7 @@
         Height="450" Width="800"
         Name="window" 
         Icon="C:\Users\79121\source\repos\MapOfEnglichWords\MapOfEnglichWords/Content/map_512.ico"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen" >
     <Window.Resources>
         <Storyboard x:Key="OpenMenu">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
@@ -51,7 +51,7 @@
                 <DropShadowEffect BlurRadius="2" ShadowDepth="1" Color="#FFAEAEAE"/>
             </Grid.Effect>
             <StackPanel>
-                <Grid Height="150" Background="White" RenderTransformOrigin="0.5,0.5">
+                <Grid Height="120" Background="White" RenderTransformOrigin="0.5,0.5">
                     <Grid.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform/>
@@ -95,6 +95,12 @@
                             <materialDesign:PackIcon Kind="Delete" Height="25" Width="25" Margin="0"/>
                         </Button>
                         <TextBlock Text="Удалить" VerticalAlignment="Center"  Margin="20 0"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Height="60">
+                        <Button Foreground="#73816a" Background="White" Command="{Binding Save}">
+                            <materialDesign:PackIcon Kind="ContentSave" Height="25" Width="25" Margin="0"/>
+                        </Button>
+                        <TextBlock Text="Сохранить" VerticalAlignment="Center"  Margin="20 0"/>
                     </StackPanel>
                 </StackPanel>
             </StackPanel>

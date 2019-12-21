@@ -12,7 +12,9 @@ namespace MapOfEnglishWords.DAL.Rep
     {
         void Add(T value);
         void Remove(T value);
+        void RemoveWithSave(T value);
         void Update(T oldValue, T newValue);
         ObservableCollection<T> Get();
+        void Save();
     }
 }

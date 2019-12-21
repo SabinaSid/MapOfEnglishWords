@@ -1,4 +1,6 @@
 ﻿using MapOfEnglichWords.DAL.LocalStorage;
+using MapOfEnglichWords.View;
+using MapOfEnglichWords.ViewModel;
 using MapOfEnglishWords.DAL.Rep;
 using MapOfEnglishWords.Model;
 using MapOfEnglishWords.View;
@@ -24,8 +26,20 @@ namespace MapOfEnglishWords.ViewModel
                 return editWord ??
                     (editWord = new Command(obj =>
                     {
-                        manager.Words.Update(word,newWord);
-                        View.Close();
+                        try
+                        {
+                            if (NewWord.Name == "" || NewWord.Translation == "")
+                            {
+                                throw new Exception("Заполните поля иностранное и родное слово");
+                            }
+                            manager.Words.Update(word, newWord);
+                            View.Close();
+                        }
+                        catch (Exception ex)
+                        {
+                            new MessageWinVM(new MessageWin(), ex.Message);
+                        }
+                        
                     }));
             }
         }

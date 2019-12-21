@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MapOfEnglishWords.View"
         mc:Ignorable="d"
-        Title="Предупреждение" Height="135" Width="300"
+        Title="Предупреждение" Height="135" Width="480"
         WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
@@ -15,12 +15,14 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Grid Grid.ColumnSpan="2" Background="White">
+        <Grid Grid.ColumnSpan="3" Background="White">
             <TextBlock Text="{Binding Text}" HorizontalAlignment="Center" FontSize="15" Foreground="Black" VerticalAlignment="Top" TextWrapping="Wrap"/>
         </Grid>
-        <Button Background="#378752" Grid.Row="1" Content="УДАЛИТЬ" Command="{Binding RemoveWord}"/>
-        <Button Background="#378752" Grid.Row="1" Grid.Column="1" Content="ОТМЕНА" Command="{Binding Cancel}"/>
+        <Button Background="#378752" Grid.Row="1" Content="УДАЛИТЬ ВСЕ" Command="{Binding RemoveWord}"/>
+        <Button Background="#378752" Grid.Row="1" Grid.Column="1" Content="УДАЛИТЬ СЛОВО" Command="{Binding RemoveWordWithSave}"/>
+        <Button Background="#378752" Grid.Row="1" Grid.Column="2" Content="ОТМЕНА" Command="{Binding Cancel}"/>
         
     </Grid>
 

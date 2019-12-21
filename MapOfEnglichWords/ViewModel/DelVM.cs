@@ -1,4 +1,6 @@
 ﻿using MapOfEnglichWords.DAL.LocalStorage;
+using MapOfEnglichWords.View;
+using MapOfEnglichWords.ViewModel;
 using MapOfEnglishWords.DAL.Rep;
 using MapOfEnglishWords.Model;
 using MapOfEnglishWords.View;
@@ -27,6 +29,19 @@ namespace MapOfEnglishWords.ViewModel
                     }));
             }
         }
+        private ICommand removeWordWithSave;
+        public ICommand RemoveWordWithSave
+        {
+            get
+            {
+                return removeWordWithSave ??
+                    (removeWordWithSave = new Command(obj =>
+                    {
+                        manager.Words.RemoveWithSave(word);
+                        View.Close();
+                    }));
+            }
+        }
         private ICommand cancel;
         public ICommand Cancel
         {
@@ -39,18 +54,28 @@ namespace MapOfEnglishWords.ViewModel
                     }));
             }
         }
+        
         public string Text { get; set; }
 
         public DelVM(IView view, Word selectWord)
             : base(view)
         {
-            word = selectWord;
-            if (word.Childs.Count>0)
+            try
             {
-                Text = $"Вы действительно хотите удалить слово {word.Name}? Оно имеет связи";
+                if (selectWord == null) throw new Exception("Сначала выберите слово");
+                word = selectWord;
+                if (word.Childs.Count > 0)
+                {
+                    Text = $"Вы действительно хотите удалить слово {word.Name}? Сохранить вложенные слова?";
+                }
+                else Text = $"Вы действительно хотите удалить слово {word.Name}?";
+                View.ShowDialog();
             }
-            else Text = $"Вы действительно хотите удалить слово {word.Name}?";
-            View.ShowDialog();
+            catch(Exception ex)
+            {
+                new MessageWinVM(new MessageWin(), ex.Message);
+            }
+            
         }
     }
 }
