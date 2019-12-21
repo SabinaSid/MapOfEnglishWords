@@ -118,7 +118,7 @@ namespace MapOfEnglishWords.ViewModel
                     {
                         if (Words != null)
                         {
-                            ReportController.ExportToWord(Words);
+                            ReportController.ExportToWord(SelectedWord);
                         }
                     }));
             }
