@@ -39,19 +39,6 @@ namespace MapOfEnglichWords.ViewModel
             get => words;
             set => Set(ref words, value);
         }
-        //protected ICommand openCreateWordWindow;
-        //public ICommand OpenCreateWordWindow
-        //{
-        //    get
-        //    {
-        //        return openCreateWordWindow ??
-        //            (openCreateWordWindow = new Command(obj =>
-        //            {
-        //                new CreateVM(new CreateWordWindow(), null);
-        //            }));
-        //    }
-        //}
-
         protected ICommand openEditWindow;
         public ICommand OpenEditWindow
         {

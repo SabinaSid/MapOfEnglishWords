@@ -30,7 +30,7 @@ namespace MapOfEnglishWords.Model
 
 
         public ObservableCollection<Word> Childs { get; set; } = new ObservableCollection<Word>();
-        public Word Parent { get; set; }
+        public Word Parent { get; set; } 
 
         public Word(string Name, string Translation)
         {
