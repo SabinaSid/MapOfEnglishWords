@@ -7,8 +7,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{82D85BA1-FDE4-4D8D-811E-6DB0BEFF87A6}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>MapOfEnglichWords</RootNamespace>
-    <AssemblyName>MapOfEnglichWords</AssemblyName>
+    <RootNamespace>MapOfEnglishWords</RootNamespace>
+    <AssemblyName>MapOfEnglishWords</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -36,6 +36,9 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>MapOfEnglishWords.App</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -91,6 +94,9 @@
     </ApplicationDefinition>
     <Compile Include="db\dbword.cs" />
     <Compile Include="db\UserContext.cs" />
+    <Compile Include="Help\WordService.cs" />
+    <Compile Include="Help\IWordService.cs" />
+    <Compile Include="Help\Mapper.cs" />
     <Compile Include="ViewModel\AbstractMainVM.cs" />
     <Compile Include="ViewModel\MessageWinVM.cs" />
     <Compile Include="View\MessageWin.xaml.cs">

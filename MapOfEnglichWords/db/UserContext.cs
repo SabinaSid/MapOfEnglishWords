@@ -14,6 +14,7 @@ namespace MapOfEnglishWords.db
         public UserContext()
             : base("DbConnection")
         {
+            
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

@@ -14,40 +14,40 @@ namespace MapOfEnglishWords.Controllers
     {
         public static void ExportToExel(ObservableCollection<Word> words)
         {
-            var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Dictionary.xlsx");
-            try
-            {
-                if (!File.Exists(path))
-                {
-                    throw new Exception("Шаблон отчета отсутствует");
-                }
-                var ExcelApp = new Excel.Application();
-                ExcelApp.Visible = true;
+            //var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Dictionary.xlsx");
+            //try
+            //{
+            //    if (!File.Exists(path))
+            //    {
+            //        throw new Exception("Шаблон отчета отсутствует");
+            //    }
+            //    var ExcelApp = new Excel.Application();
+            //    ExcelApp.Visible = true;
 
-                var book = ExcelApp.Workbooks.Open(path);
-                var sheet = (Excel.Worksheet)book.Worksheets[1];
+            //    var book = ExcelApp.Workbooks.Open(path);
+            //    var sheet = (Excel.Worksheet)book.Worksheets[1];
 
-                sheet.UsedRange.Replace("#count", words.Count);
-                if (words[0].Parent != null)
-                {
-                    sheet.UsedRange.Replace("#parant", words[0].Parent.Name);
-                }
-                else sheet.UsedRange.Replace("#parant", "все категории");
-                var range = sheet.UsedRange.Find("#name");
-                var row = range.Row;
+            //    sheet.UsedRange.Replace("#count", words.Count);
+            //    if (words[0].Parent != null)
+            //    {
+            //        sheet.UsedRange.Replace("#parant", words[0].Parent.Name);
+            //    }
+            //    else sheet.UsedRange.Replace("#parant", "все категории");
+            //    var range = sheet.UsedRange.Find("#name");
+            //    var row = range.Row;
 
-                foreach (var item in words)
-                {
-                    sheet.Cells[row, 1] = item.Name;
-                    sheet.Cells[row, 2] = item.Translation;
-                    sheet.Cells[row, 3] = item.Example;
-                    row++;
-                }
-            }
-            catch(Exception ex)
-            {
-                new MessageWinVM(new MessageWin(), ex.Message);
-            }
+            //    foreach (var item in words)
+            //    {
+            //        sheet.Cells[row, 1] = item.Name;
+            //        sheet.Cells[row, 2] = item.Translation;
+            //        sheet.Cells[row, 3] = item.Example;
+            //        row++;
+            //    }
+            //}
+            //catch(Exception ex)
+            //{
+            //    new MessageWinVM(new MessageWin(), ex.Message);
+            //}
             
            
            

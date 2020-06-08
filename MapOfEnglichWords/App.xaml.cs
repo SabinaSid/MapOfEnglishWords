@@ -11,6 +11,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using MapOfEnglishWords.Help;
 using MapOfEnglishWords.db;
 using MapOfEnglishWords.Model;
 
@@ -23,9 +24,13 @@ namespace MapOfEnglishWords
     {
         public App()
         {
+       
+         
 
 
             // new MainViewModel(new MainWindow());
+
+            // InitializeDb();
 
         }
 
