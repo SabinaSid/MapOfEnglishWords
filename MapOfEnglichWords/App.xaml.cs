@@ -4,8 +4,10 @@ using MapOfEnglishWords.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Configuration;
 using System.Data;
+using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
@@ -21,41 +23,43 @@ namespace MapOfEnglishWords
     {
         public App()
         {
-            //  new MainViewModel(new MainWindow());
-            InitializeDb();
+
+
+            // new MainViewModel(new MainWindow());
+
         }
 
         private void InitializeDb()
         {
             var words = new[]
             {
-                new WordDb()
+                new WordDto()
                 {
                     Name = "Animal", Translation = "Животное",
                     Example = "This looks like a plant, but it's actually an animal."
                 },
-                new WordDb()
+                new WordDto()
                 {
                     Name = "House", Translation = "Дом",
                     Example = "And we walked into a house with a very special home video recording system."
                 },
-                new WordDb() {Name = "Family", Translation = "Семья"},
-                new WordDb() {Name = "Person", Translation = "Персона"}
+                new WordDto() {Name = "Family", Translation = "Семья"},
+                new WordDto() {Name = "Person", Translation = "Персона"}
             };
 
             words[0].Childrens = new[]
             {
-                new WordDb()
+                new WordDto()
                     {Name = "Dog", Translation = "Пес", Example = "On the Internet nobody knows you're a dog, right?"},
-                new WordDb()
+                new WordDto()
                 {
                     Name = "Duck", Translation = "Утка",
                     Example = "And chickens and ducks and geese and turkeys are basically as dumb as dumps."
                 },
-                new WordDb() {Name = "Cat", Translation = "Кошка", Example = "When the cat's away, the mice will play."}
+                new WordDto() {Name = "Cat", Translation = "Кошка", Example = "When the cat's away, the mice will play."}
             };
 
-            words[0].Parents.Add(new WordDb() {Name = "Life", Translation = "Жизнь"});
+            words[0].Parents.Add(new WordDto() {Name = "Life", Translation = "Жизнь"});
             foreach (var item in words[0].Childrens)
             {
                 item.Parents.Add(words[0]);
@@ -68,8 +72,8 @@ namespace MapOfEnglishWords
             }
         }
     }
-
-    public class WordDb
+    [Table("Word")]
+    public class WordDto
     {
         public int Id { get; set; }
 
@@ -79,14 +83,15 @@ namespace MapOfEnglishWords
 
         public string Example { get; set; }
 
-        public virtual ICollection<WordDb> Parents { get; set; }
+        [Column("Parent")]
+        public virtual ICollection<WordDto> Parents { get; set; }
+        [Column("Child")]
+        public virtual ICollection<WordDto> Childrens { get; set; }
 
-        public virtual ICollection<WordDb> Childrens { get; set; }
-
-        public WordDb()
+        public WordDto()
         {
-            Parents = new List<WordDb>();
-            Childrens = new List<WordDb>();
+            Parents = new List<WordDto>();
+            Childrens = new List<WordDto>();
         }
     }
 }
