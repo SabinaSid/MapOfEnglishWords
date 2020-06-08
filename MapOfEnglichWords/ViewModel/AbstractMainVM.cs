@@ -1,5 +1,4 @@
-﻿using MapOfEnglichWords.Controllers;
-using MapOfEnglishWords;
+﻿using MapOfEnglishWords;
 using MapOfEnglishWords.Model;
 using MapOfEnglishWords.View;
 using MapOfEnglishWords.ViewModel;
@@ -10,8 +9,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using MapOfEnglishWords.Controllers;
 
-namespace MapOfEnglichWords.ViewModel
+namespace MapOfEnglishWords.ViewModel
 {
     public class AbstractMainVM:ViewModelBase
     {

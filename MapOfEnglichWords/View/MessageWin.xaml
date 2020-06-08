@@ -1,9 +1,9 @@
-﻿<Window x:Class="MapOfEnglichWords.View.MessageWin"
+﻿<Window x:Class="MapOfEnglishWords.View.MessageWin"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:MapOfEnglichWords.View"
+        xmlns:local="clr-namespace:MapOfEnglishWords.View"
         mc:Ignorable="d"
         Title="!ERROR!" Height="135" Width="300"
         WindowStartupLocation="CenterScreen">

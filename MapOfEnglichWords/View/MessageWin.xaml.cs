@@ -14,7 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace MapOfEnglichWords.View
+namespace MapOfEnglishWords.View
 {
     /// <summary>
     /// Логика взаимодействия для MessageWin.xaml

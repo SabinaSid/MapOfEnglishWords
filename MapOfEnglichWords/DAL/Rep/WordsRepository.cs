@@ -1,4 +1,4 @@
-﻿using MapOfEnglichWords.DAL.LocalStorage;
+﻿using MapOfEnglishWords.DAL.LocalStorage;
 using MapOfEnglishWords.Model;
 using System;
 using System.Collections.Generic;

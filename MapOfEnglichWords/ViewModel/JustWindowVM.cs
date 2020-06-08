@@ -1,6 +1,6 @@
-﻿using MapOfEnglichWords.Controllers;
-using MapOfEnglichWords.DAL.LocalStorage;
-using MapOfEnglichWords.ViewModel;
+﻿using MapOfEnglishWords.Controllers;
+using MapOfEnglishWords.DAL.LocalStorage;
+using MapOfEnglishWords.ViewModel;
 using MapOfEnglishWords.DAL.Rep;
 using MapOfEnglishWords.Model;
 using MapOfEnglishWords.View;

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MapOfEnglichWords.DAL.LocalStorage
+namespace MapOfEnglishWords.DAL.LocalStorage
 {
     public class LocalStorage : IStorage
     {

@@ -5,10 +5,10 @@ using System.IO;
 using System.Linq;
 using Excel = Microsoft.Office.Interop.Excel;
 using WordM = Microsoft.Office.Interop.Word;
-using MapOfEnglichWords.ViewModel;
-using MapOfEnglichWords.View;
+using MapOfEnglishWords.View;
+using MapOfEnglishWords.ViewModel;
 
-namespace MapOfEnglichWords.Controllers
+namespace MapOfEnglishWords.Controllers
 {
     public static class ReportController
     {

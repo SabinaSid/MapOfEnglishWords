@@ -9,6 +9,7 @@ namespace MapOfEnglishWords.Model
 {
     public class Word:BaseModel
     {
+        public int IdWord;
         private string name;
         public string Name 
         {
@@ -41,11 +42,12 @@ namespace MapOfEnglishWords.Model
         {
 
         }
-        public Word(string Name, string Translation, string Example)
+        public Word(string Name, string Translation, string Example,int IdWord = 1)
         {
             this.Name = Name;
             this.Translation = Translation;
             this.Example = Example;
+            this.IdWord = IdWord;
         }
         //public override int GetHashCode()
         //{
