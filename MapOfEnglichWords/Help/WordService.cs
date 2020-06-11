@@ -82,6 +82,8 @@ namespace MapOfEnglishWords.Help
                newWordDto.Name = wordDto.Name;
                newWordDto.Translation = wordDto.Translation;
                newWordDto.Example = wordDto.Example;
+               newWordDto.Childrens = wordDto.Childrens;
+               newWordDto.Parents = wordDto.Parents;
                context.SaveChanges();
             }
         }
@@ -111,9 +113,9 @@ namespace MapOfEnglishWords.Help
         {
             using (var context = new UserContext())
             {
-                //context.Words.Attach(wordDto);
-                //context.Words.Remove(wordDto);
-                //context.SaveChanges();
+                var word = context.Words.First(x => x.Id == wordId);
+                context.Words.Remove(word);
+                context.SaveChanges();
             }
         }
     }

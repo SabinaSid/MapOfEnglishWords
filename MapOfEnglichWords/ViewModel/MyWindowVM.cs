@@ -94,7 +94,8 @@ namespace MapOfEnglishWords.ViewModel
 
         public ICommand Refresh => new Command(obj =>
             {
-                word = new WordService().GetById(word.IdWord).ToWord();
+                //word = new WordService().GetById(word.IdWord).ToWord();
+                UpdateWindow(word.IdWord);
                 //ChildrenWord = new WordService()
                 //    .GetChildren(word.IdWord)
                 //    .Select(x => x.ToBasseWord())
@@ -109,7 +110,7 @@ namespace MapOfEnglishWords.ViewModel
         public ICommand OpenDelQuestion => 
             (openDelQuestion = new Command(obj =>
             {
-                new DelVM(new DelQuestion(), SelectedWord,word);
+                new DelVM(new DelQuestion(), new WordService().GetById(SelectedWord.IdWord).ToWord(), word);
                 Refresh.Execute(openDelQuestion);
             }));
         

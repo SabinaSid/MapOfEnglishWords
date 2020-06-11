@@ -1,6 +1,7 @@
 ﻿using MapOfEnglishWords.Model;
 using MapOfEnglishWords.View;
 using System;
+using System.Windows;
 using System.Windows.Input;
 using MapOfEnglishWords.Help;
 
@@ -10,6 +11,7 @@ namespace MapOfEnglishWords.ViewModel
     {
         private Word word;
         private Word parentWord;
+        public int ColumnSpanNoChildren { get; set; }
         private ICommand removeWord;
         public ICommand RemoveWord
         {
@@ -71,8 +73,14 @@ namespace MapOfEnglishWords.ViewModel
                 if (word.Children.Count > 0)
                 {
                     Text = $"Вы действительно хотите удалить слово {word.Name}? Сохранить вложенные слова?";
+                    ColumnSpanNoChildren = 1;
                 }
-                else Text = $"Вы действительно хотите удалить слово {word.Name}?";
+                else
+                {
+                    Text = $"Вы действительно хотите удалить слово {word.Name}?";
+                    ColumnSpanNoChildren = 2;
+
+                }
                 View.ShowDialog();
             }
             catch(Exception ex)
