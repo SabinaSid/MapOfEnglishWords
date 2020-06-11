@@ -1,22 +1,13 @@
-﻿
-using MapOfEnglishWords.DAL.LocalStorage;
-using MapOfEnglishWords.DAL.Rep;
-using MapOfEnglishWords.View;
-using MapOfEnglishWords.ViewModel;
-using System;
+﻿using MapOfEnglishWords.View;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MapOfEnglishWords.ViewModel
 {
     public abstract class ViewModelBase : INotifyPropertyChanged, IViewModel
     {
         public IView View { get; set; }
-        protected UnitOfWork manager;
 
         public event PropertyChangedEventHandler PropertyChanged;
         
@@ -38,7 +29,6 @@ namespace MapOfEnglishWords.ViewModel
         {
             View = view;
             View.SetViewModel(this);
-            manager = new UnitOfWork(LocalStorageCode.Instance);
         }
         
     }

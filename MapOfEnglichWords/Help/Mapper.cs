@@ -27,13 +27,40 @@ namespace MapOfEnglishWords.Help
             return new ObservableCollection<Word>(dtos.Select(x=>x.ToBaseWord()));
         }
 
+        public static ObservableCollection<Word> ToObservableCollectionWords(this IEnumerable<Word> dtos)
+        {
+            return new ObservableCollection<Word>(dtos);
+        }
+
         public static Word ToWord(this WordDto dto)
         {
             var word = dto.ToBaseWord();
-            //word.Parent = dto.Parents.ToWords();
-            word.Childs = dto.Childrens.ToWords();
+            word.Parents = dto.Parents.ToWords();
+            word.Children = dto.Childrens.ToWords();
 
             return word;
+        }
+
+
+        public static Word ToBasseWord(this WordDto dto)
+        {
+            var word = dto.ToBaseWord();
+   
+
+            return word;
+        }
+
+        public static WordDto ToWordDto(this Word word)
+        {
+            return new WordDto()
+            {
+                Id = word.IdWord,
+                Name = word.Name,
+                Translation = word.Translation,
+                Example = word.Example,
+                Parents = word.Parents.Select(x => new WordDto {Id = x.IdWord}).ToList(),
+                Childrens = word.Children.Select(x => new WordDto {Id = x.IdWord}).ToList()
+            };
         }
     }
 }

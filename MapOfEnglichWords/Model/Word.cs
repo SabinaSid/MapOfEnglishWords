@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.ObjectModel;
 
 namespace MapOfEnglishWords.Model
 {
     public class Word:BaseModel
     {
-        public int IdWord;
+        public int IdWord { get; set; }
         private string name;
         public string Name 
         {
@@ -29,43 +24,7 @@ namespace MapOfEnglishWords.Model
             set => Set(ref example, value);
         }
 
-
-        public ObservableCollection<Word> Childs { get; set; } = new ObservableCollection<Word>();
-        public Word Parent { get; set; } 
-
-        public Word(string Name, string Translation)
-        {
-            this.Name = Name;
-            this.Translation = Translation;
-        }
-        public Word()
-        {
-
-        }
-        public Word(string Name, string Translation, string Example,int IdWord = 1)
-        {
-            this.Name = Name;
-            this.Translation = Translation;
-            this.Example = Example;
-            this.IdWord = IdWord;
-        }
-        //public override int GetHashCode()
-        //{
-        //    int ret = 0;
-        //    if (Name !=null)
-        //    {
-        //        ret += Name.GetHashCode();
-        //    }
-        //    if (Translation!=null)
-        //    {
-        //        ret += Translation.GetHashCode();
-        //    }
-        //    if (Example!=null)
-        //    {
-        //        ret += Example.GetHashCode();
-        //    }
-        //    return ret;
-        //}
-
+        public ObservableCollection<Word> Children { get; set; } = new ObservableCollection<Word>();
+        public ObservableCollection<Word> Parents { get; set; } = new ObservableCollection<Word>();
     }
 }

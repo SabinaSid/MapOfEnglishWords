@@ -1,19 +1,9 @@
-﻿using MapOfEnglishWords.DAL;
-using MapOfEnglishWords.DAL.LocalStorage;
-using MapOfEnglishWords.ViewModel;
-using System;
+﻿using MapOfEnglishWords.ViewModel;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Configuration;
-using System.Data;
-using System.Data.Entity;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows;
-using MapOfEnglishWords.Help;
 using MapOfEnglishWords.db;
-using MapOfEnglishWords.Model;
+using MapOfEnglishWords.View;
 
 namespace MapOfEnglishWords
 {
@@ -24,14 +14,8 @@ namespace MapOfEnglishWords
     {
         public App()
         {
-       
-         
-
-
-            // new MainViewModel(new MainWindow());
-
-            // InitializeDb();
-
+            // new MyWindowVM(new MyWindow(),5);
+            new MainViewModel(new MainWindow());
         }
 
         private void InitializeDb()

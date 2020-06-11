@@ -92,15 +92,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="db\dbword.cs" />
     <Compile Include="db\UserContext.cs" />
     <Compile Include="Help\WordService.cs" />
     <Compile Include="Help\IWordService.cs" />
     <Compile Include="Help\Mapper.cs" />
-    <Compile Include="ViewModel\AbstractMainVM.cs" />
     <Compile Include="ViewModel\MessageWinVM.cs" />
+    <Compile Include="ViewModel\MyWindowVM.cs" />
     <Compile Include="View\MessageWin.xaml.cs">
       <DependentUpon>MessageWin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MyWindow.xaml.cs">
+      <DependentUpon>MyWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="View\CreateWordWindow.xaml">
       <SubType>Designer</SubType>
@@ -114,10 +116,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\JustWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="View\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -127,13 +125,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Controllers\ReportController.cs" />
-    <Compile Include="DAL\LocalStorage\IStorage.cs" />
-    <Compile Include="DAL\LocalStorage\LocalStorage.cs" />
-    <Compile Include="DAL\LocalStorage\LocalStorageCode.cs" />
-    <Compile Include="DAL\Rep\IRepository.cs" />
-    <Compile Include="DAL\Rep\UnitOfWork.cs" />
-    <Compile Include="DAL\Rep\WordsRepository.cs" />
-    <Compile Include="DAL\Xml.cs" />
     <Compile Include="Model\BaseModel.cs" />
     <Compile Include="Model\Word.cs" />
     <Compile Include="ViewModel\Command.cs" />
@@ -141,7 +132,6 @@
     <Compile Include="ViewModel\DelVM.cs" />
     <Compile Include="ViewModel\EditVM.cs" />
     <Compile Include="ViewModel\IViewModel.cs" />
-    <Compile Include="ViewModel\JustWindowVM.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
     <Compile Include="View\CreateWordWindow.xaml.cs">
@@ -154,9 +144,6 @@
       <DependentUpon>EditWordWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\IView.cs" />
-    <Compile Include="View\JustWindow.xaml.cs">
-      <DependentUpon>JustWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -166,6 +153,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Style.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MyWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

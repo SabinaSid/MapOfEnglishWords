@@ -1,22 +1,14 @@
-﻿using MapOfEnglishWords.DAL.LocalStorage;
-using MapOfEnglishWords.ViewModel;
-using MapOfEnglishWords.DAL.Rep;
-using MapOfEnglishWords.Model;
+﻿using MapOfEnglishWords.Model;
 using MapOfEnglishWords.View;
 using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Input;
+using MapOfEnglishWords.Help;
 
 namespace MapOfEnglishWords.ViewModel
 {
     public class CreateVM : ViewModelBase
     {
-        Word ParantWord;
+        Word ParentWord;
         Word word=new Word();
         public Word Word
         {
@@ -37,8 +29,14 @@ namespace MapOfEnglishWords.ViewModel
                             {
                                 throw new Exception("Заполните поля иностранное и родное слово");
                             }
-                            Word.Parent = ParantWord;
-                            manager.Words.Add(Word);
+
+                            if (ParentWord != null)
+                            {
+                                Word.Parents.Add(ParentWord);
+                            }
+                                
+                            new WordService().Add(word.ToWordDto());
+                            
                             View.Close();
                         }
                         catch(Exception ex)
@@ -55,7 +53,7 @@ namespace MapOfEnglishWords.ViewModel
         public CreateVM(IView view,Word selectWord)
             :base(view)
         {
-            ParantWord = selectWord;
+            ParentWord = selectWord;
             View.ShowDialog();
         }
         

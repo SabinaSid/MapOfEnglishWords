@@ -28,9 +28,9 @@ namespace MapOfEnglishWords.Controllers
             //    var sheet = (Excel.Worksheet)book.Worksheets[1];
 
             //    sheet.UsedRange.Replace("#count", words.Count);
-            //    if (words[0].Parent != null)
+            //    if (words[0].Parents != null)
             //    {
-            //        sheet.UsedRange.Replace("#parant", words[0].Parent.Name);
+            //        sheet.UsedRange.Replace("#parant", words[0].Parents.Name);
             //    }
             //    else sheet.UsedRange.Replace("#parant", "все категории");
             //    var range = sheet.UsedRange.Find("#name");
@@ -85,9 +85,9 @@ namespace MapOfEnglishWords.Controllers
                 otstupStr += "\t";
             }
             bool q = false;
-            while (word.Childs.Any() && q == false)
+            while (word.Children.Any() && q == false)
             {
-                foreach (var item in word.Childs)
+                foreach (var item in word.Children)
                 {
                     result += $"{otstupStr}{item.Name} ({item.Translation}) - {item.Example}\n";
                     Rec(item, ref result, otstup + 1);

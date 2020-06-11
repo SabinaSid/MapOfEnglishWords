@@ -1,20 +1,15 @@
-﻿using MapOfEnglishWords.DAL.LocalStorage;
-using MapOfEnglishWords.ViewModel;
-using MapOfEnglishWords.DAL.Rep;
-using MapOfEnglishWords.Model;
+﻿using MapOfEnglishWords.Model;
 using MapOfEnglishWords.View;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
+using MapOfEnglishWords.Help;
 
 namespace MapOfEnglishWords.ViewModel
 {
     public class DelVM: ViewModelBase
     {
-        Word word;
+        private Word word;
+        private Word parentWord;
         private ICommand removeWord;
         public ICommand RemoveWord
         {
@@ -23,7 +18,7 @@ namespace MapOfEnglishWords.ViewModel
                 return removeWord ??
                     (removeWord = new Command(obj =>
                     {
-                        manager.Words.Remove(word);
+                        new WordService().DeleteAllById(word.IdWord);
                         View.Close();
                     }));
             }
@@ -36,27 +31,17 @@ namespace MapOfEnglishWords.ViewModel
                 return removeWordWithSave ??
                     (removeWordWithSave = new Command(obj =>
                     {
-                        if (word.Parent != null)
+                        if (word.Parents.Count != 0)
                         {
-                            foreach (var item in word.Childs)
+                            foreach (var item in word.Children)
                             {
-                                item.Parent = word.Parent;
-                                manager.Words.Add(item);
+                                item.Parents.Remove(word);
+                                item.Parents.Add(parentWord);
+                                new WordService().Update(item.ToWordDto());
                             }
                             
                         }
-                        else
-                        {
-                            foreach (var item in word.Childs)
-                            {
-                                item.Parent = null;
-                                manager.Words.Add(item);
-
-                            }
-                           
-                        }
-
-                        manager.Words.Remove(word);
+                        new WordService().DeleteById(word.IdWord);
                         View.Close();
                     }));
             }
@@ -76,14 +61,14 @@ namespace MapOfEnglishWords.ViewModel
         
         public string Text { get; set; }
 
-        public DelVM(IView view, Word selectWord)
-            : base(view)
+        public DelVM(IView view, Word selectWord, Word parentWord)
+            : base(view)    
         {
             try
             {
-                if (selectWord == null) throw new Exception("Сначала выберите слово");
-                word = selectWord;
-                if (word.Childs.Count > 0)
+                word = selectWord ?? throw new Exception("Сначала выберите слово");
+                this.parentWord = parentWord;
+                if (word.Children.Count > 0)
                 {
                     Text = $"Вы действительно хотите удалить слово {word.Name}? Сохранить вложенные слова?";
                 }

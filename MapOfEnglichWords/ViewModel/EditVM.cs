@@ -1,15 +1,8 @@
-﻿using MapOfEnglishWords.DAL.LocalStorage;
-using MapOfEnglishWords.ViewModel;
-using MapOfEnglishWords.DAL.Rep;
-using MapOfEnglishWords.Model;
+﻿using MapOfEnglishWords.Model;
 using MapOfEnglishWords.View;
 using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
+using MapOfEnglishWords.Help;
 
 namespace MapOfEnglishWords.ViewModel
 {
@@ -31,7 +24,7 @@ namespace MapOfEnglishWords.ViewModel
                             {
                                 throw new Exception("Заполните поля иностранное и родное слово");
                             }
-                            manager.Words.Update(word, newWord);
+                            new WordService().Update(newWord.ToWordDto());
                             View.Close();
                         }
                         catch (Exception ex)
@@ -52,10 +45,7 @@ namespace MapOfEnglishWords.ViewModel
             :base(view)
         {
             this.word = word;
-            newWord = new Word();
-            newWord.Name = word.Name;
-            newWord.Translation = word.Translation;
-            newWord.Example = word.Example;
+            newWord = new Word {Name = word.Name, Translation = word.Translation, Example = word.Example, IdWord = word.IdWord};
             View.ShowDialog();
         }
     }
