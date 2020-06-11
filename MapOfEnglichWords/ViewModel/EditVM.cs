@@ -8,7 +8,6 @@ namespace MapOfEnglishWords.ViewModel
 {
     public class EditVM:ViewModelBase
     {
-        Word word;
         Word newWord;
         private ICommand editWord;
         public ICommand EditWord
@@ -29,7 +28,11 @@ namespace MapOfEnglishWords.ViewModel
                         }
                         catch (Exception ex)
                         {
-                            new MessageWinVM(new MessageWin(), ex.Message);
+                            if (ex.HResult== -2146233087)
+                            {
+                                new MessageWinVM(new MessageWin(), $"Вы уже учили «{newWord.Name}».");
+                            }
+                            else new MessageWinVM(new MessageWin(), ex.Message);
                         }
                         
                     }));
@@ -44,7 +47,6 @@ namespace MapOfEnglishWords.ViewModel
         public EditVM(IView view, Word word)
             :base(view)
         {
-            this.word = word;
             newWord = new Word {Name = word.Name, Translation = word.Translation, Example = word.Example, IdWord = word.IdWord};
             View.ShowDialog();
         }

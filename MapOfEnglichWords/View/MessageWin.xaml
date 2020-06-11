@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MapOfEnglishWords.View"
         mc:Ignorable="d"
-        Title="!ERROR!" Height="135" Width="300"
+        Title="ОШИБКА" Height="135" Width="300"
         WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>

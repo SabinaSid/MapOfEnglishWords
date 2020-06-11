@@ -65,7 +65,14 @@ namespace MapOfEnglishWords.Help
             }
         }
 
-        public void AddOrUpdate(WordDto wordDto)
+        public void AddRelation(int wordId, int parentId)
+        {
+            using (var context = new UserContext())
+            {
+                context.Database.ExecuteSqlCommand($"insert into ParentChild(ParentId,ChildId) values ({parentId}, {wordId}) ");
+            }
+        }
+        public void Add(WordDto wordDto)
         {
             using (var context = new UserContext())
             {
@@ -83,8 +90,6 @@ namespace MapOfEnglishWords.Help
                newWordDto.Name = wordDto.Name;
                newWordDto.Translation = wordDto.Translation;
                newWordDto.Example = wordDto.Example;
-               newWordDto.Childrens = wordDto.Childrens;
-               newWordDto.Parents = wordDto.Parents;
                context.SaveChanges();
             }
         }
@@ -112,6 +117,17 @@ namespace MapOfEnglishWords.Help
                 }
                 context.Words.Remove(word);
                 context.SaveChanges();
+            }
+        }
+
+        public WordDto GetByName(string wordName)
+        {
+            using (var context = new UserContext())
+            {
+                return context.Words
+                    .Include(x => x.Parents)
+                    .Include(x => x.Childrens)
+                    .First(x => x.Name == wordName);
             }
         }
     }
