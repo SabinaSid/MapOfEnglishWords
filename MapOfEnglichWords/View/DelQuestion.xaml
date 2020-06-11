@@ -14,12 +14,13 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Grid Grid.ColumnSpan="3" Background="White">
+        <Grid Grid.ColumnSpan="2" Background="White">
             <TextBlock Text="{Binding Text}" HorizontalAlignment="Center" FontSize="15" Foreground="Black" VerticalAlignment="Top" TextWrapping="Wrap"/>
         </Grid>
-        <Button Background="#378752" Grid.Row="1" Grid.Column="0"  Content="УДАЛИТЬ СЛОВО" Command="{Binding Remove}" Foreground="White"/>
-        
+        <Button Background="#378752" Grid.Row="1" Grid.Column="1"  Content="УДАЛИТЬ СВЯЗЬ" Command="{Binding RemoveRelation}" Foreground="White"/>
+        <Button Background="#378752" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="{Binding ColumnSpan}" Content="УДАЛИТЬ СЛОВО" Command="{Binding Remove}" Foreground="White"/>
     </Grid>
 
 </Window>

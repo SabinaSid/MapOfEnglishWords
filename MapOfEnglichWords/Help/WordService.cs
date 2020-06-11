@@ -89,23 +89,11 @@ namespace MapOfEnglishWords.Help
             }
         }
 
-        public void Delete(WordDto wordDto)
-        {
-            using (var context=new UserContext())
-            {
-                context.Words.Attach(wordDto);
-                context.Words.Remove(wordDto);
-                context.SaveChanges();
-            }
-        }
-
-
-        public void DeleteAllById(int wordId)
+        public void DeleteRelation(int wordId,int parentId)
         {
             using (var context = new UserContext())
             {
-                var word = context.Words.First(x => x.Id == wordId);
-                context.Words.Remove(word);
+                context.Database.ExecuteSqlCommand($"DELETE FROM ParentChild WHERE ParentId = {parentId} AND ChildId = {wordId}");
                 context.SaveChanges();
             }
         }
@@ -115,17 +103,13 @@ namespace MapOfEnglishWords.Help
             using (var context = new UserContext())
             {
                 var word = context.Words.First(x => x.Id == wordId);
-               // string sql = "";
                 foreach (var child in word.Childrens)
                 {
                     foreach (var parent in word.Parents)
                     {
-                        // sql += $@"insert into ParentChild(ParentId,ChildId) values {parent.Id}, {child.Id}
-                                //";
                         context.Database.ExecuteSqlCommand($"insert into ParentChild(ParentId,ChildId) values ({parent.Id}, {child.Id}) ");
                     }
                 }
-
                 context.Words.Remove(word);
                 context.SaveChanges();
             }

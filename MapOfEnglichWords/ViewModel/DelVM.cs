@@ -12,6 +12,21 @@ namespace MapOfEnglishWords.ViewModel
     {
         private Word word;
         private Word parentWord;
+        public int ColumnSpan { get; set; }
+
+        private ICommand removeRelation;
+        public ICommand RemoveRelation
+        {
+            get
+            {
+                return removeRelation ??
+                       (removeRelation = new Command(obj =>
+                       {
+                           new WordService().DeleteRelation(word.IdWord,parentWord.IdWord);
+                           View.Close();
+                       }));
+            }
+        }
         private ICommand remove;
         public ICommand Remove
         {
@@ -35,7 +50,12 @@ namespace MapOfEnglishWords.ViewModel
             {
                 word = selectWord ?? throw new Exception("Сначала выберите слово");
                 this.parentWord = parentWord;
-                Text = $"Вы действительно хотите удалить «{word.Name}»?";
+                if (word.Parents.Count<=1)
+                {
+                    Text = $"Вы действительно хотите удалить «{word.Name}»?";
+                    ColumnSpan = 2;
+                }
+                else Text = $"Вы действительно хотите удалить «{word.Name}»? Или только связь «{word.Name}» - «{parentWord.Name}»?";
                 View.ShowDialog();
             }
             catch(Exception ex)
