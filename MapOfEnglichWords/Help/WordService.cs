@@ -1,5 +1,6 @@
 ﻿using System.Data.Entity;
 using System.Data.Entity.Migrations;
+using System.Data.SqlClient;
 using System.Linq;
 using MapOfEnglishWords.db;
 using MapOfEnglishWords.Model;
@@ -64,12 +65,12 @@ namespace MapOfEnglishWords.Help
             }
         }
 
-        public void Add(WordDto wordDto)
+        public void AddOrUpdate(WordDto wordDto)
         {
             using (var context = new UserContext())
             {
                 context.Words.Attach(wordDto);
-                context.Words.Add(wordDto);
+                context.Words.AddOrUpdate(wordDto);
                 context.SaveChanges();
             }
         }
@@ -114,6 +115,17 @@ namespace MapOfEnglishWords.Help
             using (var context = new UserContext())
             {
                 var word = context.Words.First(x => x.Id == wordId);
+               // string sql = "";
+                foreach (var child in word.Childrens)
+                {
+                    foreach (var parent in word.Parents)
+                    {
+                        // sql += $@"insert into ParentChild(ParentId,ChildId) values {parent.Id}, {child.Id}
+                                //";
+                        context.Database.ExecuteSqlCommand($"insert into ParentChild(ParentId,ChildId) values ({parent.Id}, {child.Id}) ");
+                    }
+                }
+
                 context.Words.Remove(word);
                 context.SaveChanges();
             }

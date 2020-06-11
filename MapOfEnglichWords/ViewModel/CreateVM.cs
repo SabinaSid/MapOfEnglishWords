@@ -35,7 +35,7 @@ namespace MapOfEnglishWords.ViewModel
                                 Word.Parents.Add(ParentWord);
                             }
                                 
-                            new WordService().Add(word.ToWordDto());
+                            new WordService().AddOrUpdate(word.ToWordDto());
                             
                             View.Close();
                         }
