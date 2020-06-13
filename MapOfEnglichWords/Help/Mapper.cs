@@ -19,7 +19,9 @@ namespace MapOfEnglishWords.Help
                 IdWord = dto.Id,
                 Translation = dto.Translation,
                 Name = dto.Name,
-                Example = dto.Example
+                Example = dto.Example,
+                CountRepeat = dto.CountRepeat,
+                LastRepeatDate = dto.LastRepeatDate
             };
         }
 
@@ -59,6 +61,8 @@ namespace MapOfEnglishWords.Help
                 Name = word.Name,
                 Translation = word.Translation,
                 Example = word.Example,
+                CountRepeat = word.CountRepeat,
+                LastRepeatDate = word.LastRepeatDate,
                 Parents = word.Parents.Select(x => new WordDto {Id = x.IdWord}).ToList(),
                 Childrens = word.Children.Select(x => new WordDto {Id = x.IdWord}).ToList()
             };

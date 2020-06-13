@@ -107,6 +107,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ViewModel\MessageWinVM.cs" />
     <Compile Include="ViewModel\MyWindowVM.cs" />
+    <Compile Include="ViewModel\TrainerVM.cs" />
     <Compile Include="View\MessageWin.xaml.cs">
       <DependentUpon>MessageWin.xaml</DependentUpon>
     </Compile>

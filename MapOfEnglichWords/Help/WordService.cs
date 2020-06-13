@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Data.SqlClient;
 using System.Linq;
@@ -39,6 +40,16 @@ namespace MapOfEnglishWords.Help
                     .Where(x => x.Parents.Count == 0)
                     .Include(x => x.Parents)
                     .Include(x => x.Childrens)
+                    .ToArray();
+            }
+        }
+
+        public WordDto[] GetForRepeat()
+        {
+            using (var context = new UserContext())
+            {
+                return context.Words
+                    .Where(x => x.CountRepeat<6 && x.LastRepeatDate<DateTime.Today)
                     .ToArray();
             }
         }

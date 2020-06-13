@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 
 namespace MapOfEnglishWords.Model
 {
@@ -22,6 +23,22 @@ namespace MapOfEnglishWords.Model
         {
             get => example;
             set => Set(ref example, value);
+        }
+
+        private int countRepeat;
+
+        public int CountRepeat
+        {
+            get => countRepeat;
+            set => Set(ref countRepeat, value);
+        }
+
+        private DateTime lastRepeatDate;
+
+        public DateTime LastRepeatDate
+        {
+            get => lastRepeatDate;
+            set => Set(ref lastRepeatDate, value);
         }
 
         public ObservableCollection<Word> Children { get; set; } = new ObservableCollection<Word>();
