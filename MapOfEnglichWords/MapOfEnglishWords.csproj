@@ -107,6 +107,7 @@
     <Compile Include="View\Trainer.xaml.cs">
       <DependentUpon>Trainer.xaml</DependentUpon>
     </Compile>
+    <Compile Include="db\WordDto.cs" />
     <Page Include="View\CreateWordWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

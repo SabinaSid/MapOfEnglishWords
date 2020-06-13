@@ -1,4 +1,6 @@
-﻿namespace MapOfEnglishWords.Help
+﻿using MapOfEnglishWords.db;
+
+namespace MapOfEnglishWords.Help
 {
     public interface IWordService
     {

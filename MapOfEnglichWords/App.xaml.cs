@@ -1,6 +1,4 @@
 ﻿using MapOfEnglishWords.ViewModel;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Windows;
 using MapOfEnglishWords.db;
 using MapOfEnglishWords.View;
@@ -59,28 +57,6 @@ namespace MapOfEnglishWords
                 db.Words.AddRange(words);
                 db.SaveChanges();
             }
-        }
-    }
-    [Table("Word")]
-    public class WordDto
-    {
-        public int Id { get; set; }
-
-        public string Name { get; set; }
-
-        public string Translation { get; set; }
-
-        public string Example { get; set; }
-
-        [Column("Parent")]
-        public virtual ICollection<WordDto> Parents { get; set; }
-        [Column("Child")]
-        public virtual ICollection<WordDto> Childrens { get; set; }
-
-        public WordDto()
-        {
-            Parents = new List<WordDto>();
-            Childrens = new List<WordDto>();
         }
     }
 }
