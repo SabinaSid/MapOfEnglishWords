@@ -104,6 +104,9 @@
     <Compile Include="View\MyWindow.xaml.cs">
       <DependentUpon>MyWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Trainer.xaml.cs">
+      <DependentUpon>Trainer.xaml</DependentUpon>
+    </Compile>
     <Page Include="View\CreateWordWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -157,6 +160,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\MyWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Trainer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
