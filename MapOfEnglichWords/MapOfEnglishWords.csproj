@@ -96,6 +96,15 @@
     <Compile Include="Help\WordService.cs" />
     <Compile Include="Help\IWordService.cs" />
     <Compile Include="Help\Mapper.cs" />
+    <Compile Include="Migrations\202006081626549_InitialCreate.cs" />
+    <Compile Include="Migrations\202006081626549_InitialCreate.Designer.cs">
+      <DependentUpon>202006081626549_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006131523222_AddNewColumn.cs" />
+    <Compile Include="Migrations\202006131523222_AddNewColumn.designer.cs">
+      <DependentUpon>202006131523222_AddNewColumn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ViewModel\MessageWinVM.cs" />
     <Compile Include="ViewModel\MyWindowVM.cs" />
     <Compile Include="View\MessageWin.xaml.cs">
@@ -183,6 +192,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Migrations\202006081626549_InitialCreate.resx">
+      <DependentUpon>202006081626549_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006131523222_AddNewColumn.resx">
+      <DependentUpon>202006131523222_AddNewColumn.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

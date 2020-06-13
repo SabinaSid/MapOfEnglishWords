@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MapOfEnglishWords.db
@@ -13,6 +14,10 @@ namespace MapOfEnglishWords.db
         public string Translation { get; set; }
 
         public string Example { get; set; }
+
+        public int CountRepeat { get; set; }
+
+        public  DateTime LastRepeatDate { get; set; }
 
         [Column("Parent")]
         public virtual ICollection<WordDto> Parents { get; set; }
