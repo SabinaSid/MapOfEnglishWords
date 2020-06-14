@@ -15,7 +15,7 @@ namespace MapOfEnglishWords
         {
             ServiceLocator.Register<IWordService>(new WordService());
             new MainViewModel(new MainWindow());
-            new TrainerVM(new Trainer());
+            
         }
 
         private void InitializeDb()

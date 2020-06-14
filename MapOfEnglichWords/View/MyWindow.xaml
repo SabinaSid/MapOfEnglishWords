@@ -76,12 +76,6 @@
                 </Grid>
                 <StackPanel Orientation="Vertical" ScrollViewer.HorizontalScrollBarVisibility="Disabled"  Background="#7bb38d" >
                     <StackPanel Orientation="Horizontal" Height="60">
-                        <Button Foreground="#73816a" Background="White" Command="{Binding PrintExcel}">
-                            <materialDesign:PackIcon Kind="FileExcel" Height="25" Width="25" Margin="0"/>
-                        </Button>
-                        <TextBlock Text="Словарь" VerticalAlignment="Center" Margin="20 0"/>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal" Height="60">
                         <Button Foreground="#73816a" Background="White" Command="{Binding PrintWord}">
                             <materialDesign:PackIcon Kind="FileWord" Height="25" Width="25" Margin="0"/>
                         </Button>
@@ -92,20 +86,12 @@
                             <materialDesign:PackIcon Kind="Pencil" Height="25" Width="25" Margin="0" />
                         </Button>
                         <TextBlock Text="Создать" VerticalAlignment="Center" Margin="20 0"/>
-
-
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Height="60">
                         <Button Foreground="#73816a" Background="White" Command="{Binding OpenDelQuestion}">
                             <materialDesign:PackIcon Kind="Delete" Height="25" Width="25" Margin="0"/>
                         </Button>
                         <TextBlock Text="Удалить" VerticalAlignment="Center"  Margin="20 0"/>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal" Height="60">
-                        <Button Foreground="#73816a" Background="White" Command="{Binding Refresh}">
-                            <materialDesign:PackIcon Kind="ContentSave" Height="25" Width="25" Margin="0"/>
-                        </Button>
-                        <TextBlock Text="Сохранить" VerticalAlignment="Center"  Margin="20 0"/>
                     </StackPanel>
                 </StackPanel>
             </StackPanel>

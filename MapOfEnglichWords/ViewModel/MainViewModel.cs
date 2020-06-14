@@ -61,7 +61,7 @@ namespace MapOfEnglishWords.ViewModel
                     }));
             }
         }
-        protected ICommand openDelQuestion;
+        private ICommand openDelQuestion;
         public ICommand OpenDelQuestion
         {
             get
@@ -74,7 +74,21 @@ namespace MapOfEnglishWords.ViewModel
                     }));
             }
         }
-        protected ICommand printExcel;
+        private ICommand openTrainer;
+        public ICommand OpenTrainer
+        {
+            get
+            {
+                return openTrainer ??
+                       (openTrainer = new Command(obj =>
+                       {
+                           new TrainerVM(new Trainer());
+                           Refresh.Execute(openTrainer);
+                       }));
+            }
+        }
+
+        private ICommand printExcel;
         public ICommand PrintExcel
         {
             get
@@ -84,12 +98,12 @@ namespace MapOfEnglishWords.ViewModel
                     {
                         if (Words != null)
                         {
-                            ReportController.ExportToExel(Words);
+                            ReportController.ExportToExel(wordService.GetAll().Select(x => x.ToWord()).ToObservableCollectionWords());
                         }
                     }));
             }
         }
-        protected ICommand printWord;
+        private ICommand printWord;
         public ICommand PrintWord
         {
             get

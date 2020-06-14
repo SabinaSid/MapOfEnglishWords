@@ -96,10 +96,10 @@
                         <TextBlock Text="Удалить" VerticalAlignment="Center"  Margin="20 0"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Height="60">
-                        <Button Foreground="#73816a" Background="White" Command="{Binding Refresh}">
-                            <materialDesign:PackIcon Kind="ContentSave" Height="25" Width="25" Margin="0"/>
+                        <Button Foreground="#73816a" Background="White" Command="{Binding OpenTrainer}">
+                            <materialDesign:PackIcon Kind="Dumbbell" Height="25" Width="25" Margin="0"/>
                         </Button>
-                        <TextBlock Text="Сохранить" VerticalAlignment="Center"  Margin="20 0"/>
+                        <TextBlock Text="Тренажер" VerticalAlignment="Center"  Margin="20 0"/>
                     </StackPanel>
                 </StackPanel>
             </StackPanel>
@@ -112,7 +112,7 @@
                   Background="#e3f1e2" BorderBrush="#e3f1e2" ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                   >
             <ListView.ItemTemplate >
-                <DataTemplate>
+                <DataTemplate >
                     <Border BorderThickness="0 0 0 1" BorderBrush="#378752" Margin="0" >
                         <TextBlock Text="{Binding Name}" Height="100" Width="100" FontSize="30" FontFamily="Pescadero" Foreground="#378752">
                               <i:Interaction.Triggers>

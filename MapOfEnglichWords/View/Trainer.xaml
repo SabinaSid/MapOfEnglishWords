@@ -6,7 +6,8 @@
         xmlns:converters="clr-namespace:MapOfEnglishWords.View.Converters"
         mc:Ignorable="d"
         Icon="C:\Users\79121\source\repos\MapOfEnglichWords\MapOfEnglichWords/Content/map_512.ico"
-        Title="Тренажер для повторения слов" Height="300" Width="450">
+        Title="Тренажер для повторения слов" Height="300" Width="450"
+        WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <converters:WordToNameConverter x:Key="WordToNameConverter" />
     </Window.Resources>

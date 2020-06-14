@@ -106,7 +106,7 @@ namespace MapOfEnglishWords.ViewModel
             : base(view)
         {
             UpdateWindow();
-            View.Show();
+            View.ShowDialog();
         }
         private string content;
         public string Content

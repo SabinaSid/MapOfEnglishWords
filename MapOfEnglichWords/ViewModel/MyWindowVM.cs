@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Windows.Input;
 using System.Windows.Media;
+using MapOfEnglishWords.Controllers;
 using MapOfEnglishWords.Help;
 using MapOfEnglishWords.Model;
 using MapOfEnglishWords.View;
@@ -113,6 +114,21 @@ namespace MapOfEnglishWords.ViewModel
                 new CreateVM(new CreateWordWindow(), word);
                 Refresh.Execute(openCreateWordWindow);
             }));
+        private ICommand printWord;
+        public ICommand PrintWord
+        {
+            get
+            {
+                return printWord ??
+                       (printWord = new Command(obj =>
+                       {
+                           if (SelectedWord != null)
+                           {
+                               ReportController.ExportToWord(SelectedWord);
+                           }
+                       }));
+            }
+        }
 
 
     }
