@@ -10,6 +10,7 @@ namespace MapOfEnglishWords.ViewModel
 {
     public class DelVM: ViewModelBase
     {
+        private IWordService wordService = ServiceLocator.GetService<IWordService>();
         private Word word;
         private Word parentWord;
         public int ColumnSpan { get; set; }
@@ -22,7 +23,7 @@ namespace MapOfEnglishWords.ViewModel
                 return removeRelation ??
                        (removeRelation = new Command(obj =>
                        {
-                           new WordService().DeleteRelation(word.IdWord,parentWord.IdWord);
+                           wordService.DeleteRelation(word.IdWord,parentWord.IdWord);
                            View.Close();
                        }));
             }
@@ -35,7 +36,7 @@ namespace MapOfEnglishWords.ViewModel
                 return remove ??
                        (remove = new Command(obj =>
                        {
-                           new WordService().DeleteById(word.IdWord);
+                           wordService.DeleteById(word.IdWord);
                            View.Close();
                        }));
             }

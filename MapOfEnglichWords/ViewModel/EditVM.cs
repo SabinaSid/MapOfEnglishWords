@@ -8,6 +8,7 @@ namespace MapOfEnglishWords.ViewModel
 {
     public class EditVM:ViewModelBase
     {
+        private IWordService wordService = ServiceLocator.GetService<IWordService>();
         Word newWord;
         private ICommand editWord;
         public ICommand EditWord
@@ -23,7 +24,7 @@ namespace MapOfEnglishWords.ViewModel
                             {
                                 throw new Exception("Заполните поля иностранное и родное слово");
                             }
-                            new WordService().Update(newWord.ToWordDto());
+                            wordService.Update(newWord.ToWordDto());
                             View.Close();
                         }
                         catch (Exception ex)

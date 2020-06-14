@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using MapOfEnglishWords.Help;
 using MapOfEnglishWords.Model;
@@ -12,6 +10,14 @@ namespace MapOfEnglishWords.ViewModel
 {
     class TrainerVM : ViewModelBase
     {
+        private IWordService wordService = ServiceLocator.GetService<IWordService>();
+        private bool translateEnglish;
+        public bool TranslateEnglish
+        {
+            get => translateEnglish;
+            set => Set(ref translateEnglish, value);
+        }
+
         private Word oneWord;
         public Word OneWord
         {
@@ -68,7 +74,7 @@ namespace MapOfEnglishWords.ViewModel
                                {
                                    Visibility = "Visible";
                                    Text = $"Ура! Все верно. Идем дальше?";
-                                   new WordService().UpdateForTrainer(answerWord.IdWord);
+                                   wordService.UpdateForTrainer(answerWord.IdWord);
                                }
                                else
                                {
@@ -88,7 +94,9 @@ namespace MapOfEnglishWords.ViewModel
                 return refresh ??
                        (refresh = new Command(obj =>
                        {
-                          UpdateWindow();
+                           if (Text.Contains("На сегодня")) 
+                               View.Close();
+                           UpdateWindow();
                        }));
             }
         }
@@ -111,9 +119,8 @@ namespace MapOfEnglishWords.ViewModel
         {
             try
             {
-                var collection = new WordService().GetForRepeat().Select(x => x.ToWord()).ToList();
+                var collection = wordService.GetForRepeat().Select(x => x.ToWord()).ToList();
                 answerWord = collection[0];
-                Text = $"Переведите «{answerWord.Translation}»";
                 Shuffle(collection);
                 Shuffle(collection);
                 OneWord = collection[0];
@@ -123,6 +130,8 @@ namespace MapOfEnglishWords.ViewModel
                 ThreeWord = collection.First();
                 Visibility = "Hidden";
                 Content = "Дальше";
+                TranslateEnglish =  new Random().Next(0,2) != 0;
+                Text = TranslateEnglish ? $"Переведите «{answerWord.Translation}»" : $"Переведите «{answerWord.Name}»";
             }
             catch (WordException ex)
             {
@@ -132,7 +141,6 @@ namespace MapOfEnglishWords.ViewModel
                 {
                    View.Close();
                 });
-                //Visibility = "Hidden";
             }
         }
 

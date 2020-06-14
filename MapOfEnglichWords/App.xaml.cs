@@ -1,6 +1,7 @@
 ﻿using MapOfEnglishWords.ViewModel;
 using System.Windows;
 using MapOfEnglishWords.db;
+using MapOfEnglishWords.Help;
 using MapOfEnglishWords.View;
 
 namespace MapOfEnglishWords
@@ -12,8 +13,8 @@ namespace MapOfEnglishWords
     {
         public App()
         {
-            // new MyWindowVM(new MyWindow(),5);
-         //   new MainViewModel(new MainWindow());
+            ServiceLocator.Register<IWordService>(new WordService());
+            new MainViewModel(new MainWindow());
             new TrainerVM(new Trainer());
         }
 

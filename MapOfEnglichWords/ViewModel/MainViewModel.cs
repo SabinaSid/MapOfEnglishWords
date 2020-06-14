@@ -10,10 +10,11 @@ namespace MapOfEnglishWords.ViewModel
 {
     public class MainViewModel :ViewModelBase
     {
+        private IWordService wordService = ServiceLocator.GetService<IWordService>();
         public MainViewModel(IView view)
             :base(view)
         {
-            Words = new WordService().GetInitialize().Select(x=>x.ToWord()).ToObservableCollectionWords();
+            Words = wordService.GetInitialize().Select(x=>x.ToWord()).ToObservableCollectionWords();
             Title = "Все категории";
             View.Show();
         }
@@ -46,7 +47,7 @@ namespace MapOfEnglishWords.ViewModel
         }
         public ICommand Refresh => new Command(obj =>
         {
-            Words = new WordService().GetInitialize().Select(x => x.ToWord()).ToObservableCollectionWords();
+            Words = wordService.GetInitialize().Select(x => x.ToWord()).ToObservableCollectionWords();
         });
         protected ICommand openJustWindow;
         public ICommand OpenJustWindow

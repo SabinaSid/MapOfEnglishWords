@@ -10,6 +10,7 @@ namespace MapOfEnglishWords.ViewModel
 {
     class MyWindowVM : ViewModelBase
     {
+        private IWordService wordService = ServiceLocator.GetService<IWordService>();
         
         private Brush colorParents;
         public Brush ColorParents
@@ -60,7 +61,7 @@ namespace MapOfEnglishWords.ViewModel
 
         private void UpdateWindow(int id)
         {
-            word = new WordService().GetById(id).ToWord();
+            word = wordService.GetById(id).ToWord();
 
             TitleParents = word.Parents.Count == 0 ? "нет родителей" : "";
 
@@ -101,7 +102,7 @@ namespace MapOfEnglishWords.ViewModel
         public ICommand OpenDelQuestion => 
             (openDelQuestion = new Command(obj =>
             {
-                new DelVM(new DelQuestion(), new WordService().GetById(SelectedWord.IdWord).ToWord(), word);
+                new DelVM(new DelQuestion(), wordService.GetById(SelectedWord.IdWord).ToWord(), word);
                 Refresh.Execute(openDelQuestion);
             }));
         

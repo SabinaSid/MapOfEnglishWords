@@ -10,22 +10,48 @@
     <Window.Resources>
         <converters:WordToNameConverter x:Key="WordToNameConverter" />
     </Window.Resources>
-    <Grid >
+    <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="40"/>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="40" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Grid Grid.ColumnSpan="3" Background="White">
-            <TextBlock Margin="40" Text="{Binding Text}" HorizontalAlignment="Center" FontSize="20" Foreground="Black" VerticalAlignment="Top" TextWrapping="Wrap"/>
+            <TextBlock Margin="40" Text="{Binding Text}" HorizontalAlignment="Center" FontSize="20" Foreground="Black"
+                       VerticalAlignment="Top" TextWrapping="Wrap" />
         </Grid>
-        <Button Background="#378752" Grid.Row="1" Grid.Column="2"  Content="{Binding OneWord, Converter={StaticResource WordToNameConverter}}" Command="{Binding CheckAnswer}" CommandParameter="1" Foreground="White"/>
-        <Button Background="#378752" Grid.Row="1" Grid.Column="1"  Content="{Binding TwoWord, Converter={StaticResource WordToNameConverter}}" Command="{Binding CheckAnswer}" CommandParameter="2" Foreground="White"/>
-        <Button Background="#378752" Grid.Row="1" Grid.Column="0"  Content="{Binding ThreeWord, Converter={StaticResource WordToNameConverter}}" Command="{Binding CheckAnswer}" CommandParameter="3" Foreground="White"/>
-        <Button Background="#378752" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Visibility="{Binding Visibility}" Content="{Binding Content}" Command="{Binding Refresh}" Foreground="White"/>
+        <Button Background="#378752" Grid.Row="1" Grid.Column="2" Command="{Binding CheckAnswer}" CommandParameter="1"
+                Foreground="White">
+            <Button.Content>
+                <MultiBinding Converter="{StaticResource WordToNameConverter}">
+                    <Binding Path="OneWord" />
+                    <Binding Path="TranslateEnglish" />
+                </MultiBinding>
+            </Button.Content>
+        </Button>
+        <Button Background="#378752" Grid.Row="1" Grid.Column="1" Command="{Binding CheckAnswer}" CommandParameter="2"
+                Foreground="White">
+            <Button.Content>
+                <MultiBinding Converter="{StaticResource WordToNameConverter}">
+                    <Binding Path="TwoWord" />
+                    <Binding Path="TranslateEnglish" />
+                </MultiBinding>
+            </Button.Content>
+        </Button>
+        <Button Background="#378752" Grid.Row="1" Grid.Column="0" Command="{Binding CheckAnswer}" CommandParameter="3"
+                Foreground="White">
+            <Button.Content>
+                <MultiBinding Converter="{StaticResource WordToNameConverter}">
+                    <Binding Path="ThreeWord" />
+                    <Binding Path="TranslateEnglish" />
+                </MultiBinding>
+            </Button.Content>
+        </Button>
+        <Button Background="#378752" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Visibility="{Binding Visibility}"
+                Content="{Binding Content}" Command="{Binding Refresh}" Foreground="White" />
     </Grid>
 </Window>

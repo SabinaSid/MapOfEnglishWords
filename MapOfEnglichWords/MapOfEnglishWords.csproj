@@ -93,9 +93,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="db\UserContext.cs" />
+    <Compile Include="Help\IWordService.cs" />
+    <Compile Include="Help\ServiceLocator.cs" />
     <Compile Include="Help\WordException.cs" />
     <Compile Include="Help\WordService.cs" />
-    <Compile Include="Help\IWordService.cs" />
     <Compile Include="Help\Mapper.cs" />
     <Compile Include="Migrations\202006081626549_InitialCreate.cs" />
     <Compile Include="Migrations\202006081626549_InitialCreate.Designer.cs">

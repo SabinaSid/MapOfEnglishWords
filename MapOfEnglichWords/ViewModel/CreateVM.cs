@@ -9,6 +9,7 @@ namespace MapOfEnglishWords.ViewModel
 {
     public class CreateVM : ViewModelBase
     {
+        private IWordService wordService = ServiceLocator.GetService<IWordService>();
         private Word parentWord;
         Word word=new Word();
         public Word Word
@@ -33,8 +34,8 @@ namespace MapOfEnglishWords.ViewModel
                                 throw new Exception("Заполните поля иностранное и родное слово");
                             
                             if (parentWord != null) Word.Parents.Add(parentWord);
-                            
-                            new WordService().Add(word.ToWordDto());
+
+                            wordService.Add(word.ToWordDto());
                             
                             View.Close();
                         }
@@ -61,7 +62,7 @@ namespace MapOfEnglishWords.ViewModel
 
         private void CreateExistent()
         {
-            Word existentWord = new WordService().GetByName(word.Name).ToWord();
+            var existentWord = wordService.GetByName(word.Name).ToWord();
             if (CanCreateExistent(existentWord))
             {
                 Word.Translation += (Word.Translation == existentWord.Translation)
@@ -73,7 +74,7 @@ namespace MapOfEnglishWords.ViewModel
                     $@"
 {existentWord.Example}";
                 Word.IdWord = existentWord.IdWord;
-               new WordService().AddRelation(existentWord.IdWord, parentWord.IdWord);
+                wordService.AddRelation(existentWord.IdWord, parentWord.IdWord);
                View.Close();
                new EditVM(new EditWordWindow(), Word);
             }
