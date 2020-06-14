@@ -61,8 +61,8 @@ namespace MapOfEnglishWords.Help
                 Name = word.Name,
                 Translation = word.Translation,
                 Example = word.Example,
-                CountRepeat = word.CountRepeat,
-                LastRepeatDate = word.LastRepeatDate,
+                CountRepeat = word.CountRepeat == default ? 1 : word.CountRepeat,
+                LastRepeatDate = word.LastRepeatDate == default ? DateTime.Now : word.LastRepeatDate,
                 Parents = word.Parents.Select(x => new WordDto {Id = x.IdWord}).ToList(),
                 Childrens = word.Children.Select(x => new WordDto {Id = x.IdWord}).ToList()
             };

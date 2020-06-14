@@ -94,16 +94,7 @@ namespace MapOfEnglishWords.ViewModel
 
         public ICommand Refresh => new Command(obj =>
             {
-                //word = new WordService().GetById(word.IdWord).ToWord();
                 UpdateWindow(word.IdWord);
-                //ChildrenWord = new WordService()
-                //    .GetChildren(word.IdWord)
-                //    .Select(x => x.ToBasseWord())
-                //    .ToObservableCollectionWords();
-                //ParentsWord =new WordService()
-                //    .GetParent(word.IdWord)
-                //    .Select(x=>x.ToBasseWord())
-                //    .ToObservableCollectionWords();
             });
 
         private ICommand openDelQuestion;

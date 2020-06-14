@@ -11,17 +11,28 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MapOfEnglishWords.ViewModel;
 
 namespace MapOfEnglishWords.View
 {
     /// <summary>
     /// Логика взаимодействия для Trainer.xaml
     /// </summary>
-    public partial class Trainer : Window
+    public partial class Trainer : Window, IView
     {
         public Trainer()
         {
             InitializeComponent();
+        }
+
+        public IViewModel GetViewModel()
+        {
+            return DataContext as IViewModel;
+        }
+
+        public void SetViewModel(IViewModel value)
+        {
+            DataContext = value;
         }
     }
 }

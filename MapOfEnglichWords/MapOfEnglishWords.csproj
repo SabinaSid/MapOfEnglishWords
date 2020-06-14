@@ -93,6 +93,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="db\UserContext.cs" />
+    <Compile Include="Help\WordException.cs" />
     <Compile Include="Help\WordService.cs" />
     <Compile Include="Help\IWordService.cs" />
     <Compile Include="Help\Mapper.cs" />
@@ -108,6 +109,7 @@
     <Compile Include="ViewModel\MessageWinVM.cs" />
     <Compile Include="ViewModel\MyWindowVM.cs" />
     <Compile Include="ViewModel\TrainerVM.cs" />
+    <Compile Include="View\Converters\WordToNameConverter.cs" />
     <Compile Include="View\MessageWin.xaml.cs">
       <DependentUpon>MessageWin.xaml</DependentUpon>
     </Compile>

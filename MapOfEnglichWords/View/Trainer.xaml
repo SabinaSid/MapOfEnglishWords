@@ -3,10 +3,29 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:MapOfEnglishWords.View"
+        xmlns:converters="clr-namespace:MapOfEnglishWords.View.Converters"
         mc:Ignorable="d"
-        Title="Trainer" Height="450" Width="800">
-    <Grid>
-        
+        Icon="C:\Users\79121\source\repos\MapOfEnglichWords\MapOfEnglichWords/Content/map_512.ico"
+        Title="Тренажер для повторения слов" Height="300" Width="450">
+    <Window.Resources>
+        <converters:WordToNameConverter x:Key="WordToNameConverter" />
+    </Window.Resources>
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.ColumnSpan="3" Background="White">
+            <TextBlock Margin="40" Text="{Binding Text}" HorizontalAlignment="Center" FontSize="20" Foreground="Black" VerticalAlignment="Top" TextWrapping="Wrap"/>
+        </Grid>
+        <Button Background="#378752" Grid.Row="1" Grid.Column="2"  Content="{Binding OneWord, Converter={StaticResource WordToNameConverter}}" Command="{Binding CheckAnswer}" CommandParameter="1" Foreground="White"/>
+        <Button Background="#378752" Grid.Row="1" Grid.Column="1"  Content="{Binding TwoWord, Converter={StaticResource WordToNameConverter}}" Command="{Binding CheckAnswer}" CommandParameter="2" Foreground="White"/>
+        <Button Background="#378752" Grid.Row="1" Grid.Column="0"  Content="{Binding ThreeWord, Converter={StaticResource WordToNameConverter}}" Command="{Binding CheckAnswer}" CommandParameter="3" Foreground="White"/>
+        <Button Background="#378752" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Visibility="{Binding Visibility}" Content="{Binding Content}" Command="{Binding Refresh}" Foreground="White"/>
     </Grid>
 </Window>

@@ -1,4 +1,5 @@
-﻿using MapOfEnglishWords.db;
+﻿using System.Collections.Generic;
+using MapOfEnglishWords.db;
 
 namespace MapOfEnglishWords.Help
 {

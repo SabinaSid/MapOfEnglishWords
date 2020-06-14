@@ -17,7 +17,7 @@ namespace MapOfEnglishWords.db
 
         public int CountRepeat { get; set; }
 
-        public  DateTime LastRepeatDate { get; set; }
+        public DateTime LastRepeatDate { get; set; }
 
         [Column("Parent")]
         public virtual ICollection<WordDto> Parents { get; set; }

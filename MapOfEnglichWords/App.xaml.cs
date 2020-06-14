@@ -13,7 +13,8 @@ namespace MapOfEnglishWords
         public App()
         {
             // new MyWindowVM(new MyWindow(),5);
-            new MainViewModel(new MainWindow());
+         //   new MainViewModel(new MainWindow());
+            new TrainerVM(new Trainer());
         }
 
         private void InitializeDb()

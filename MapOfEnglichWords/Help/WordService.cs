@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Data.Entity;
 using System.Data.Entity.Migrations;
-using System.Data.SqlClient;
 using System.Linq;
+using System.Threading;
 using MapOfEnglishWords.db;
-using MapOfEnglishWords.Model;
 
 namespace MapOfEnglishWords.Help
 {
@@ -15,8 +14,8 @@ namespace MapOfEnglishWords.Help
             using (var context = new UserContext())
             {
                 return context.Words
-                    .Include(x=>x.Parents)
-                    .Include(x=>x.Childrens)
+                    .Include(x => x.Parents)
+                    .Include(x => x.Childrens)
                     .ToArray();
             }
         }
@@ -28,7 +27,7 @@ namespace MapOfEnglishWords.Help
                 return context.Words
                     .Include(x => x.Parents)
                     .Include(x => x.Childrens)
-                    .First(x=>x.Id == Id);
+                    .First(x => x.Id == Id);
             }
         }
 
@@ -46,12 +45,22 @@ namespace MapOfEnglishWords.Help
 
         public WordDto[] GetForRepeat()
         {
-            using (var context = new UserContext())
-            {
-                return context.Words
-                    .Where(x => x.CountRepeat<6 && x.LastRepeatDate<DateTime.Today)
-                    .ToArray();
-            }
+            WordDto[] returnWords = new WordDto[3];
+
+            var allWords = GetAll();
+            var repeatsWord = allWords
+                .Where(x => x.CountRepeat < 6 && x.LastRepeatDate < DateTime.Today)
+                .ToArray();
+            if (repeatsWord.Length == 0)
+                throw new WordException("На сегодня слова закончились. Приходите завтра");
+            var selectedIndex = new Random().Next(0, repeatsWord.Length);
+            returnWords[0] = repeatsWord[selectedIndex];
+            var allWordsWithoutSelected = allWords.Where(x => x.Id != returnWords[0].Id).ToArray();
+            returnWords[1] = allWordsWithoutSelected[new Random().Next(0, allWordsWithoutSelected.Length)];
+            allWordsWithoutSelected = allWordsWithoutSelected.Where(x => x.Id != returnWords[1].Id).ToArray();
+            Thread.Sleep(50);
+            returnWords[2] = allWordsWithoutSelected[new Random().Next(0, allWordsWithoutSelected.Length)];
+            return returnWords;
         }
 
         public WordDto[] GetParent(int id)
@@ -80,9 +89,11 @@ namespace MapOfEnglishWords.Help
         {
             using (var context = new UserContext())
             {
-                context.Database.ExecuteSqlCommand($"insert into ParentChild(ParentId,ChildId) values ({parentId}, {wordId}) ");
+                context.Database.ExecuteSqlCommand(
+                    $"insert into ParentChild(ParentId,ChildId) values ({parentId}, {wordId}) ");
             }
         }
+
         public void Add(WordDto wordDto)
         {
             using (var context = new UserContext())
@@ -97,19 +108,31 @@ namespace MapOfEnglishWords.Help
         {
             using (var context = new UserContext())
             {
-               var newWordDto= context.Words.FirstOrDefault(x => x.Id == wordDto.Id);
-               newWordDto.Name = wordDto.Name;
-               newWordDto.Translation = wordDto.Translation;
-               newWordDto.Example = wordDto.Example;
-               context.SaveChanges();
+                var newWordDto = context.Words.FirstOrDefault(x => x.Id == wordDto.Id);
+                newWordDto.Name = wordDto.Name;
+                newWordDto.Translation = wordDto.Translation;
+                newWordDto.Example = wordDto.Example;
+                context.SaveChanges();
             }
         }
 
-        public void DeleteRelation(int wordId,int parentId)
+        public void UpdateForTrainer(int wordId)
         {
             using (var context = new UserContext())
             {
-                context.Database.ExecuteSqlCommand($"DELETE FROM ParentChild WHERE ParentId = {parentId} AND ChildId = {wordId}");
+                var newWordDto = context.Words.FirstOrDefault(x => x.Id == wordId);
+                newWordDto.CountRepeat = newWordDto.CountRepeat+1;
+                newWordDto.LastRepeatDate = DateTime.Today;
+                context.SaveChanges();
+            }
+        }
+
+        public void DeleteRelation(int wordId, int parentId)
+        {
+            using (var context = new UserContext())
+            {
+                context.Database.ExecuteSqlCommand(
+                    $"DELETE FROM ParentChild WHERE ParentId = {parentId} AND ChildId = {wordId}");
                 context.SaveChanges();
             }
         }
@@ -123,9 +146,11 @@ namespace MapOfEnglishWords.Help
                 {
                     foreach (var parent in word.Parents)
                     {
-                        context.Database.ExecuteSqlCommand($"insert into ParentChild(ParentId,ChildId) values ({parent.Id}, {child.Id}) ");
+                        context.Database.ExecuteSqlCommand(
+                            $"insert into ParentChild(ParentId,ChildId) values ({parent.Id}, {child.Id}) ");
                     }
                 }
+
                 context.Words.Remove(word);
                 context.SaveChanges();
             }
