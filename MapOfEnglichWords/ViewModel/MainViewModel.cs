@@ -58,6 +58,7 @@ namespace MapOfEnglishWords.ViewModel
                     (openJustWindow = new Command(obj =>
                     {
                         new MyWindowVM(new MyWindow(), SelectedWord.IdWord);
+                        Refresh.Execute(openEditWindow);
                     }));
             }
         }

@@ -57,7 +57,7 @@ namespace MapOfEnglishWords.ViewModel
             : base(view)
         {
             UpdateWindow(id);
-            View.Show();
+            View.ShowDialog();
         }
 
         private void UpdateWindow(int id)
