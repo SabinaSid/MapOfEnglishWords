@@ -122,7 +122,7 @@ namespace MapOfEnglishWords.ViewModel
                 var collection = wordService.GetForRepeat().Select(x => x.ToWord()).ToList();
                 answerWord = collection[0];
                 Shuffle(collection);
-                Shuffle(collection);
+                //Shuffle(collection);
                 OneWord = collection[0];
                 collection.RemoveAt(0);
                 TwoWord = collection.First();
